@@ -40,15 +40,17 @@ type Constraints struct {
 }
 
 // Rule is a single validation rule for a field.
+// Min/Max use interface{} because they can be numeric (for "range") or
+// string (for "date_range").
 type Rule struct {
-	Field        string   `json:"field"`
-	RuleType     string   `json:"rule"`
-	Min          *float64 `json:"min,omitempty"`
-	Max          *float64 `json:"max,omitempty"`
-	Exact        *int     `json:"exact,omitempty"`
-	Regex        string   `json:"regex,omitempty"`
-	Values       []string `json:"values,omitempty"`
-	ExpectedType string   `json:"expected_type,omitempty"`
+	Field        string      `json:"field"`
+	RuleType     string      `json:"rule"`
+	Min          interface{} `json:"min,omitempty"`
+	Max          interface{} `json:"max,omitempty"`
+	Exact        *int        `json:"exact,omitempty"`
+	Regex        string      `json:"regex,omitempty"`
+	Values       []string    `json:"values,omitempty"`
+	ExpectedType string      `json:"expected_type,omitempty"`
 }
 
 // DistCheck describes a distribution check.
@@ -248,10 +250,10 @@ func checkRule(val interface{}, rule Rule) bool {
 		if !ok {
 			return false
 		}
-		if rule.Min != nil && f < *rule.Min {
+		if min, ok := toFloat(rule.Min); ok && f < min {
 			return false
 		}
-		if rule.Max != nil && f > *rule.Max {
+		if max, ok := toFloat(rule.Max); ok && f > max {
 			return false
 		}
 		return true
@@ -291,10 +293,10 @@ func checkRule(val interface{}, rule Rule) bool {
 		if !ok {
 			return false
 		}
-		if rule.Min != nil && len(arr) < int(*rule.Min) {
+		if min, ok := toFloat(rule.Min); ok && len(arr) < int(min) {
 			return false
 		}
-		if rule.Max != nil && len(arr) > int(*rule.Max) {
+		if max, ok := toFloat(rule.Max); ok && len(arr) > int(max) {
 			return false
 		}
 		return true
@@ -318,6 +320,9 @@ func checkRule(val interface{}, rule Rule) bool {
 }
 
 func toFloat(val interface{}) (float64, bool) {
+	if val == nil {
+		return 0, false
+	}
 	switch v := val.(type) {
 	case float64:
 		return v, true
@@ -385,7 +390,7 @@ func main() {
 		}
 
 		prompt := buildPrompt(schema)
-		response, meta, err := client.ChatCompletion(*model, systemPrompt, prompt, true)
+		response, meta, err := client.ChatCompletion(*model, systemPrompt, prompt, true, 4096)
 		if err != nil {
 			log.Fatalf("ollama: %v", err)
 		}

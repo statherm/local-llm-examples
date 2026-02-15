@@ -56,8 +56,10 @@ type chatResponse struct {
 
 // ChatCompletion sends a chat request to Ollama and returns the response text
 // along with performance metadata. If jsonMode is true, the model is asked to
-// return valid JSON.
-func (c *Client) ChatCompletion(model, system, prompt string, jsonMode bool) (string, types.ModelMetadata, error) {
+// return valid JSON with a default output cap of 1024 tokens.
+// An optional maxTokens parameter overrides the default cap (e.g. for large
+// generation tasks that need more output room).
+func (c *Client) ChatCompletion(model, system, prompt string, jsonMode bool, maxTokens ...int) (string, types.ModelMetadata, error) {
 	msgs := []chatMessage{}
 	if system != "" {
 		msgs = append(msgs, chatMessage{Role: "system", Content: system})
@@ -74,8 +76,13 @@ func (c *Client) ChatCompletion(model, system, prompt string, jsonMode bool) (st
 		// Cap output tokens to prevent repetition loops. Many small models
 		// (qwen2.5:3b, phi3:mini, mistral:7b) generate thousands of tokens
 		// of repeated JSON or chain-of-thought in JSON mode without this.
-		// 256 tokens is plenty for any classification/structured-output response.
-		req.Options = map[string]any{"num_predict": 256}
+		// 1024 tokens handles complex structured extraction (invoices with
+		// line items, etc.) while still preventing runaway generation.
+		cap := 1024
+		if len(maxTokens) > 0 && maxTokens[0] > 0 {
+			cap = maxTokens[0]
+		}
+		req.Options = map[string]any{"num_predict": cap}
 	}
 
 	body, err := json.Marshal(req)
