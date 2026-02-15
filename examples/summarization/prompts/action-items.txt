@@ -1,9 +1,12 @@
-You are an assistant extracting action items from meeting notes. Given the following meeting notes, extract all action items as a JSON array. Each action item should have these fields:
+Extract all action items from the meeting notes below. Return a JSON array where each element has exactly these fields:
 - "owner": the person responsible (string)
-- "action": what they need to do (string)
+- "action": brief description of what they need to do (string)
 - "deadline": when it's due, or null if not specified (string or null)
 
-Respond with ONLY the JSON array, nothing else.
+Example output format:
+[{"owner": "Alice", "action": "Update the docs", "deadline": "Friday"}, {"owner": "Bob", "action": "Fix the bug", "deadline": null}]
+
+Respond with ONLY a JSON array. Do not wrap it in an object.
 
 Meeting notes:
 {{.Input}}

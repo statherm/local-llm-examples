@@ -1,10 +1,13 @@
 Convert the following log lines into a JSON array of structured events. Each event should have these fields:
-- "timestamp": ISO 8601 string
+- "timestamp": ISO 8601 format (e.g. "2026-02-14T08:01:23Z")
 - "level": one of "INFO", "WARN", "ERROR", "DEBUG", "FATAL"
-- "source": the component or logger name in brackets
-- "message": the log message text
+- "source": the component/logger name only, without brackets (e.g. "[auth] → "auth", [nginx[1234]] → "nginx")
+- "message": the log message text after the source
 
-Respond with ONLY the JSON array, nothing else.
+For HTTP/access logs without an explicit level, infer from status code: 2xx/3xx → "INFO", 4xx → "WARN", 5xx → "ERROR".
+
+Respond with ONLY a JSON array, no wrapper object. Example:
+[{"timestamp": "...", "level": "INFO", "source": "auth", "message": "..."}]
 
 Log lines:
 {{.Input}}

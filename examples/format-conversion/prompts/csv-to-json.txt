@@ -1,4 +1,7 @@
-Convert the following CSV data into a JSON array. Infer appropriate types: numbers should be JSON numbers, booleans should be JSON booleans, dates should be ISO 8601 strings, and everything else should be strings.
+Convert the following CSV data into a JSON array where each row is an object keyed by the CSV headers. Infer appropriate types: numbers should be JSON numbers, booleans should be JSON booleans, dates should remain as strings (YYYY-MM-DD), and everything else should be strings.
+
+Example: for CSV "id,name\n1,Alice\n2,Bob" output:
+[{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}]
 
 Respond with ONLY the JSON array, nothing else.
 

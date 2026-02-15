@@ -120,7 +120,7 @@ func main() {
 	}
 
 	if *reportOnly {
-		generateReport()
+		generateReport(scenarios)
 		return
 	}
 
@@ -163,7 +163,12 @@ func runScenarios(scenarios []scenario) {
 			continue
 		}
 
-		output, meta, err := client.ChatCompletion(*model, "", prompt, s.JSONMode)
+		// System prompt reinforces array output for JSON mode (meeting actions).
+		var sysPrompt string
+		if s.JSONMode {
+			sysPrompt = "You respond only with valid JSON. When the user asks for action items, you MUST return a JSON array containing ALL items. Do not stop after the first item."
+		}
+		output, meta, err := client.ChatCompletion(*model, sysPrompt, prompt, s.JSONMode, 2048)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "  ERROR from model: %v\n", err)
 			continue
@@ -247,14 +252,83 @@ func scoreScenario(r result, scenarios []scenario) float64 {
 	}
 }
 
-// scoreTextSummary computes token-level F1 between expected and actual text.
+// scoreTextSummary scores a text summary using keyword recall: what fraction of
+// meaningful keywords from the expected summary appear in the actual output.
+// This is more appropriate than token F1 for summarization where phrasing varies
+// but key concepts should be preserved.
 func scoreTextSummary(expected, actual string) float64 {
 	expTokens := tokenize(expected)
 	actTokens := tokenize(actual)
-	return scoring.F1Score(expTokens, actTokens)
+
+	// Build set of actual tokens for lookup
+	actSet := make(map[string]bool)
+	for _, t := range actTokens {
+		actSet[t] = true
+	}
+
+	// Filter expected tokens to meaningful keywords (skip stopwords)
+	keywords := filterStopwords(expTokens)
+	if len(keywords) == 0 {
+		return scoring.F1Score(expTokens, actTokens) // fallback
+	}
+
+	// Keyword recall: what fraction of expected keywords appear in actual
+	found := 0
+	for _, kw := range keywords {
+		if actSet[kw] {
+			found++
+		}
+	}
+	recall := float64(found) / float64(len(keywords))
+
+	// Also compute brevity penalty: penalize outputs that are wildly longer
+	lenRatio := float64(len(actTokens)) / float64(len(expTokens))
+	brevity := 1.0
+	if lenRatio > 3.0 {
+		brevity = 3.0 / lenRatio
+	}
+
+	return recall * brevity
+}
+
+// Common English stopwords to skip when computing keyword recall.
+var stopwords = map[string]bool{
+	"a": true, "an": true, "the": true, "is": true, "are": true, "was": true,
+	"were": true, "be": true, "been": true, "being": true, "have": true,
+	"has": true, "had": true, "do": true, "does": true, "did": true,
+	"will": true, "would": true, "could": true, "should": true, "may": true,
+	"might": true, "shall": true, "can": true, "to": true, "of": true,
+	"in": true, "for": true, "on": true, "with": true, "at": true,
+	"by": true, "from": true, "as": true, "into": true, "through": true,
+	"during": true, "before": true, "after": true, "above": true, "below": true,
+	"between": true, "out": true, "off": true, "over": true, "under": true,
+	"again": true, "further": true, "then": true, "once": true, "and": true,
+	"but": true, "or": true, "nor": true, "not": true, "so": true, "yet": true,
+	"both": true, "either": true, "neither": true, "each": true, "every": true,
+	"all": true, "any": true, "few": true, "more": true, "most": true,
+	"other": true, "some": true, "such": true, "no": true, "only": true,
+	"own": true, "same": true, "than": true, "too": true, "very": true,
+	"just": true, "because": true, "if": true, "when": true, "where": true,
+	"how": true, "what": true, "which": true, "who": true, "whom": true,
+	"this": true, "that": true, "these": true, "those": true, "it": true,
+	"its": true, "i": true, "me": true, "my": true, "we": true, "our": true,
+	"you": true, "your": true, "he": true, "him": true, "his": true,
+	"she": true, "her": true, "they": true, "them": true, "their": true,
+}
+
+func filterStopwords(tokens []string) []string {
+	var result []string
+	for _, t := range tokens {
+		if !stopwords[t] && len(t) > 2 {
+			result = append(result, t)
+		}
+	}
+	return result
 }
 
 // scoreMeetingActions scores action item extraction by comparing JSON arrays.
+// Handles models that wrap the array in an object (e.g. {"actionItems": [...]})
+// or return a single object instead of an array.
 func scoreMeetingActions(expected, actual string) float64 {
 	type actionItem struct {
 		Owner    string  `json:"owner"`
@@ -262,15 +336,13 @@ func scoreMeetingActions(expected, actual string) float64 {
 		Deadline *string `json:"deadline"`
 	}
 
-	var expItems, actItems []actionItem
+	var expItems []actionItem
 	if err := json.Unmarshal([]byte(expected), &expItems); err != nil {
 		return 0
 	}
-	if err := json.Unmarshal([]byte(actual), &actItems); err != nil {
-		return 0
-	}
 
-	if len(expItems) == 0 {
+	actItems := parseActionItems(actual)
+	if len(expItems) == 0 || len(actItems) == 0 {
 		return 0
 	}
 
@@ -279,7 +351,6 @@ func scoreMeetingActions(expected, actual string) float64 {
 	for _, exp := range expItems {
 		for _, act := range actItems {
 			if scoring.ExactMatch(exp.Owner, act.Owner) {
-				// Check if the action descriptions overlap meaningfully
 				expWords := tokenize(exp.Action)
 				actWords := tokenize(act.Action)
 				f1 := scoring.F1Score(expWords, actWords)
@@ -292,6 +363,43 @@ func scoreMeetingActions(expected, actual string) float64 {
 	}
 
 	return float64(matched) / float64(len(expItems))
+}
+
+type actionItem struct {
+	Owner    string  `json:"owner"`
+	Action   string  `json:"action"`
+	Deadline *string `json:"deadline"`
+}
+
+// parseActionItems tries to extract action items from various JSON formats:
+// 1. Direct array: [{"owner": ...}, ...]
+// 2. Wrapper object: {"actionItems": [{"owner": ...}, ...]}
+// 3. Single object: {"owner": ...}
+func parseActionItems(s string) []actionItem {
+	// Try direct array
+	var items []actionItem
+	if err := json.Unmarshal([]byte(s), &items); err == nil {
+		return items
+	}
+
+	// Try wrapper object — find the first array value
+	var wrapper map[string]json.RawMessage
+	if err := json.Unmarshal([]byte(s), &wrapper); err == nil {
+		for _, v := range wrapper {
+			var arr []actionItem
+			if err := json.Unmarshal(v, &arr); err == nil && len(arr) > 0 {
+				return arr
+			}
+		}
+	}
+
+	// Try single object
+	var single actionItem
+	if err := json.Unmarshal([]byte(s), &single); err == nil && single.Owner != "" {
+		return []actionItem{single}
+	}
+
+	return nil
 }
 
 // tokenize splits text into lowercase word tokens.
@@ -318,7 +426,7 @@ func renderPrompt(tmpl, input string) (string, error) {
 	return sb.String(), err
 }
 
-func generateReport() {
+func generateReport(scenarios []scenario) {
 	files, err := filepath.Glob("results/*.json")
 	if err != nil || len(files) == 0 {
 		fmt.Println("No result files found in results/")
@@ -336,11 +444,15 @@ func generateReport() {
 			continue
 		}
 		for _, r := range results {
+			qName := "keyword-recall"
+			if strings.Contains(r.Scenario, "meeting") {
+				qName = "action-match"
+			}
 			benchmarks = append(benchmarks, types.BenchmarkResult{
 				Example:      r.Scenario,
 				Model:        r.Model,
-				Quality:      scoreTextSummary(r.Expected, r.Output),
-				QualityName:  "F1",
+				Quality:      scoreScenario(r, scenarios),
+				QualityName:  qName,
 				TokensIn:     r.Meta.TokensIn,
 				TokensOut:    r.Meta.TokensOut,
 				TTFT:         r.Meta.TTFT,

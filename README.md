@@ -4,6 +4,8 @@ A curated suite of working examples demonstrating small, locally-run language mo
 
 This is not a benchmark leaderboard. It is a cookbook with proof.
 
+For a fuller overview — what each example does, who this is for, and how the code is structured — see **[Project Summary](docs/project-summary.md)**.
+
 ## Prerequisites
 
 - **Go 1.22+** -- https://go.dev/dl/
@@ -62,7 +64,7 @@ local-llm-examples/
 │   └── types/         # Common types
 ├── results/           # Cross-example comparison reports
 ├── planning/          # Planning documents
-├── docs/              # Research and gap analysis
+├── docs/              # Project summary, research, gap analysis
 ├── Makefile           # Top-level orchestration
 └── README.md          # This file
 ```

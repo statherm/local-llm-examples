@@ -108,7 +108,7 @@ func main() {
 	}
 
 	if *reportOnly {
-		generateReport()
+		generateReport(scenarios)
 		return
 	}
 
@@ -151,7 +151,13 @@ func runScenarios(scenarios []scenario) {
 			continue
 		}
 
-		output, meta, err := client.ChatCompletion(*model, "", prompt, s.JSONMode)
+		// System prompt reinforces array output for JSON mode scenarios.
+		// Small models (qwen2.5:3b) often stop after one JSON object without this.
+		var sysPrompt string
+		if s.JSONMode {
+			sysPrompt = "You respond only with valid JSON. When the user asks for multiple items, you MUST return a JSON array containing ALL items. Do not stop after the first item."
+		}
+		output, meta, err := client.ChatCompletion(*model, sysPrompt, prompt, s.JSONMode, 2048)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "  ERROR from model: %v\n", err)
 			continue
@@ -236,6 +242,7 @@ func scoreScenario(r result, scenarios []scenario) float64 {
 }
 
 // scoreJSONArray compares two JSON arrays element by element using field matching.
+// It handles cases where the model wraps the array in an object (e.g. {"events": [...]}).
 func scoreJSONArray(expected, actual string) float64 {
 	var expArr []json.RawMessage
 	var actArr []json.RawMessage
@@ -244,7 +251,22 @@ func scoreJSONArray(expected, actual string) float64 {
 		return 0
 	}
 	if err := json.Unmarshal([]byte(strings.TrimSpace(actual)), &actArr); err != nil {
-		return 0
+		// Try unwrapping from a wrapper object like {"events": [...], "data": [...]}
+		actArr = unwrapJSONArray(actual)
+		if actArr == nil {
+			// Try treating as a single bare object → 1-element array
+			var obj json.RawMessage
+			if err := json.Unmarshal([]byte(strings.TrimSpace(actual)), &obj); err == nil {
+				// Verify it's an object, not something else
+				var m map[string]json.RawMessage
+				if json.Unmarshal(obj, &m) == nil {
+					actArr = []json.RawMessage{obj}
+				}
+			}
+			if actArr == nil {
+				return 0
+			}
+		}
 	}
 
 	if len(expArr) == 0 {
@@ -274,6 +296,23 @@ func scoreJSONArray(expected, actual string) float64 {
 		return 0
 	}
 	return float64(totalMatched) / float64(totalFields)
+}
+
+// unwrapJSONArray extracts a JSON array from a wrapper object. Models sometimes
+// return {"events": [...]} or {"data": [...]} instead of a bare array.
+func unwrapJSONArray(s string) []json.RawMessage {
+	var wrapper map[string]json.RawMessage
+	if err := json.Unmarshal([]byte(strings.TrimSpace(s)), &wrapper); err != nil {
+		return nil
+	}
+	// Find the first value that's an array
+	for _, v := range wrapper {
+		var arr []json.RawMessage
+		if err := json.Unmarshal(v, &arr); err == nil {
+			return arr
+		}
+	}
+	return nil
 }
 
 // scoreYAMLConfig does a simple key-value token overlap between expected and actual YAML.
@@ -318,7 +357,7 @@ func renderPrompt(tmpl, input string) (string, error) {
 	return sb.String(), err
 }
 
-func generateReport() {
+func generateReport(scenarios []scenario) {
 	files, err := filepath.Glob("results/*.json")
 	if err != nil || len(files) == 0 {
 		fmt.Println("No result files found in results/")
@@ -343,7 +382,7 @@ func generateReport() {
 			benchmarks = append(benchmarks, types.BenchmarkResult{
 				Example:      r.Scenario,
 				Model:        r.Model,
-				Quality:      scoreJSONArray(r.Expected, r.Output),
+				Quality:      scoreScenario(r, scenarios),
 				QualityName:  qName,
 				TokensIn:     r.Meta.TokensIn,
 				TokensOut:    r.Meta.TokensOut,

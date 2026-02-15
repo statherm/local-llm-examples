@@ -1,4 +1,7 @@
-Convert the following Markdown table into a JSON array. Each row becomes an object with column headers as keys. Preserve the exact values from the table.
+Convert the following Markdown table into a JSON array. Each row becomes one object. Use the exact column headers as JSON keys (preserve their original casing). Preserve the exact values from the table.
+
+For a table with headers "Name", "Age" and rows "Alice", 30 / "Bob", 25:
+[{"Name": "Alice", "Age": "30"}, {"Name": "Bob", "Age": "25"}]
 
 Respond with ONLY the JSON array, nothing else.
 
