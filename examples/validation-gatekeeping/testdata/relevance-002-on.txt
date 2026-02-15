@@ -1,1 +1,0 @@
-How do I set up a horizontal pod autoscaler that scales based on custom Prometheus metrics instead of CPU utilization?

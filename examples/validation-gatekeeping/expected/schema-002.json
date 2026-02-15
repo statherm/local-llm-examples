@@ -1,1 +1,0 @@
-{"valid": false, "issues": [{"field": "name", "problem": "must not be empty"}, {"field": "email", "problem": "must be a valid email address"}, {"field": "age", "problem": "must be a positive integer"}, {"field": "role", "problem": "must be one of: admin, editor, viewer"}, {"field": "active", "problem": "must be a boolean"}]}

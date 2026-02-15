@@ -1,1 +1,0 @@
-How do I configure nginx to use TLS 1.3 only and disable older protocol versions?

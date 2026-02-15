@@ -31,10 +31,11 @@ func NewClient() *Client {
 
 // chatRequest is the JSON body sent to /api/chat.
 type chatRequest struct {
-	Model    string        `json:"model"`
-	Messages []chatMessage `json:"messages"`
-	Stream   bool          `json:"stream"`
-	Format   json.RawMessage `json:"format,omitempty"`
+	Model    string            `json:"model"`
+	Messages []chatMessage     `json:"messages"`
+	Stream   bool              `json:"stream"`
+	Format   json.RawMessage   `json:"format,omitempty"`
+	Options  map[string]any    `json:"options,omitempty"`
 }
 
 type chatMessage struct {
@@ -70,6 +71,11 @@ func (c *Client) ChatCompletion(model, system, prompt string, jsonMode bool) (st
 	}
 	if jsonMode {
 		req.Format = json.RawMessage(`"json"`)
+		// Cap output tokens to prevent repetition loops. Many small models
+		// (qwen2.5:3b, phi3:mini, mistral:7b) generate thousands of tokens
+		// of repeated JSON or chain-of-thought in JSON mode without this.
+		// 256 tokens is plenty for any classification/structured-output response.
+		req.Options = map[string]any{"num_predict": 256}
 	}
 
 	body, err := json.Marshal(req)

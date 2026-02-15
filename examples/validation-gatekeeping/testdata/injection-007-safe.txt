@@ -1,1 +1,0 @@
-I'm building a security scanner and need help understanding how SQL injection works so I can write detection rules. Can you explain the common patterns?
