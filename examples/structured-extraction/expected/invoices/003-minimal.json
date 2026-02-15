@@ -1,0 +1,24 @@
+{
+  "vendor_name": "Joe's Plumbing",
+  "invoice_number": "JP-0092",
+  "date": "2025-02-03",
+  "line_items": [
+    {
+      "description": "Emergency pipe repair (kitchen)",
+      "quantity": 1,
+      "unit_price": 275.00,
+      "amount": 275.00
+    },
+    {
+      "description": "Parts (copper fitting, sealant)",
+      "quantity": 1,
+      "unit_price": 48.00,
+      "amount": 48.00
+    }
+  ],
+  "subtotal": 323.00,
+  "tax": 0,
+  "total": 323.00,
+  "currency": "USD",
+  "payment_terms": ""
+}

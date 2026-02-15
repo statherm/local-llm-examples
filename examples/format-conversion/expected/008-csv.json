@@ -1,0 +1,7 @@
+[
+  {"product": "Widget A", "price": 29.99, "quantity": 150, "in_stock": true, "weight_kg": 0.5, "category": "electronics"},
+  {"product": "Widget B", "price": 49.99, "quantity": 0, "in_stock": false, "weight_kg": 1.2, "category": "electronics"},
+  {"product": "Gadget X", "price": 199.99, "quantity": 25, "in_stock": true, "weight_kg": 2.8, "category": "hardware"},
+  {"product": "Gadget Y", "price": 89.50, "quantity": 75, "in_stock": true, "weight_kg": 0.3, "category": "accessories"},
+  {"product": "Tool Z", "price": 15.00, "quantity": 500, "in_stock": true, "weight_kg": 0.1, "category": "accessories"}
+]

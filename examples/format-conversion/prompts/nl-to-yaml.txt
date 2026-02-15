@@ -1,0 +1,6 @@
+Convert the following natural language configuration description into a valid YAML configuration file. Use appropriate nesting and data types.
+
+Respond with ONLY the YAML content, nothing else. Do not wrap it in code fences.
+
+Configuration description:
+{{.Input}}

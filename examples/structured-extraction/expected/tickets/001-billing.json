@@ -1,0 +1,8 @@
+{
+  "customer_name": "Marcus Johnson",
+  "product": "CloudSync Pro",
+  "issue_category": "billing",
+  "severity": "high",
+  "requested_action": "Refund the duplicate subscription charge",
+  "contact_info": "marcus.j@outlook.com"
+}

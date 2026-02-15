@@ -1,0 +1,95 @@
+{
+  "query": "How do I configure database connection pooling in Go?",
+  "candidates": [
+    {
+      "id": "doc-001",
+      "title": "database/sql Package Overview",
+      "snippet": "Package sql provides a generic interface around SQL databases. The sql package must be used in conjunction with a database driver. See https://golang.org/s/sqldrivers for a list of drivers."
+    },
+    {
+      "id": "doc-002",
+      "title": "Setting MaxOpenConns and MaxIdleConns",
+      "snippet": "Use db.SetMaxOpenConns(n) to limit the number of open connections to the database. Use db.SetMaxIdleConns(n) to set the maximum number of idle connections in the pool. These two settings together control connection pooling behavior."
+    },
+    {
+      "id": "doc-003",
+      "title": "Go Database Tutorial: Connecting to PostgreSQL",
+      "snippet": "This tutorial shows how to connect a Go application to PostgreSQL using the pgx driver. We cover basic CRUD operations, prepared statements, and transaction handling."
+    },
+    {
+      "id": "doc-004",
+      "title": "Connection Pool Configuration Best Practices",
+      "snippet": "Configure your connection pool based on your workload. For web applications, set MaxOpenConns to 2x your expected concurrent requests. Set ConnMaxLifetime to 5 minutes to prevent stale connections. Always set MaxIdleConns equal to MaxOpenConns for best performance."
+    },
+    {
+      "id": "doc-005",
+      "title": "HTTP Connection Pooling in Go",
+      "snippet": "The http.Transport in Go maintains a pool of idle connections for HTTP keep-alive. Configure MaxIdleConns, MaxIdleConnsPerHost, and IdleConnTimeout to control pooling behavior for outbound HTTP requests."
+    },
+    {
+      "id": "doc-006",
+      "title": "Understanding database/sql Internals",
+      "snippet": "The database/sql package manages a pool of connections internally. When you call db.Query() or db.Exec(), a connection is borrowed from the pool, used, and returned. If all connections are busy, the caller blocks until one becomes available."
+    },
+    {
+      "id": "doc-007",
+      "title": "Go Concurrency Patterns",
+      "snippet": "Learn about goroutines, channels, select statements, and common concurrency patterns in Go. This guide covers worker pools, fan-out/fan-in, and pipeline patterns."
+    },
+    {
+      "id": "doc-008",
+      "title": "pgxpool: Connection Pooling for pgx",
+      "snippet": "The pgxpool package provides a concurrency-safe connection pool for pgx. Create a pool with pgxpool.New() and configure MinConns, MaxConns, MaxConnLifetime, and MaxConnIdleTime. The pool automatically manages connection health checks."
+    },
+    {
+      "id": "doc-009",
+      "title": "Monitoring Database Connections in Go",
+      "snippet": "Use db.Stats() to monitor your connection pool. The sql.DBStats struct reports OpenConnections, InUse, Idle, WaitCount, and WaitDuration. Export these as Prometheus metrics for production monitoring."
+    },
+    {
+      "id": "doc-010",
+      "title": "Migrating from Python to Go",
+      "snippet": "This guide helps Python developers transition to Go. We cover differences in error handling, type systems, package management, and common gotchas when rewriting Python services in Go."
+    },
+    {
+      "id": "doc-011",
+      "title": "GORM Connection Pool Settings",
+      "snippet": "GORM uses database/sql under the hood. After calling gorm.Open(), get the underlying *sql.DB with db.DB() and configure SetMaxIdleConns(), SetMaxOpenConns(), and SetConnMaxLifetime() on it."
+    },
+    {
+      "id": "doc-012",
+      "title": "Redis Connection Pooling with go-redis",
+      "snippet": "The go-redis client maintains an internal connection pool. Configure PoolSize, MinIdleConns, and PoolTimeout in redis.Options. Default PoolSize is 10 * runtime.GOMAXPROCS."
+    },
+    {
+      "id": "doc-013",
+      "title": "Go 1.21 Release Notes",
+      "snippet": "Go 1.21 adds clear built-in function, structured logging with slog, new slices and maps packages, profile-guided optimization improvements, and backward compatibility improvements."
+    },
+    {
+      "id": "doc-014",
+      "title": "Troubleshooting Connection Leaks in Go",
+      "snippet": "Connection leaks occur when rows.Close() or stmt.Close() is not called. Use defer to ensure cleanup. Monitor db.Stats().InUse over time. If InUse grows without bound, you have a leak. Common causes: missing defer rows.Close() after db.Query()."
+    },
+    {
+      "id": "doc-015",
+      "title": "SetConnMaxLifetime and SetConnMaxIdleTime",
+      "snippet": "SetConnMaxLifetime sets the maximum amount of time a connection may be reused. SetConnMaxIdleTime sets the maximum amount of time a connection may be idle before being closed. Both help prevent using stale connections to databases behind load balancers."
+    },
+    {
+      "id": "doc-016",
+      "title": "Go Performance Optimization Guide",
+      "snippet": "Profile your Go applications with pprof. Common bottlenecks include excessive allocations, lock contention, and inefficient I/O. Use sync.Pool for object reuse and buffered channels for backpressure."
+    },
+    {
+      "id": "doc-017",
+      "title": "Building a REST API with Go and sqlx",
+      "snippet": "This tutorial builds a REST API using chi router and sqlx for database access. We cover middleware, request validation, error handling, and structuring a Go web application."
+    },
+    {
+      "id": "doc-018",
+      "title": "Database Connection Pool Sizing Formula",
+      "snippet": "The optimal pool size depends on your database server's capacity and your application's query patterns. A good starting formula: pool_size = (core_count * 2) + disk_spindles. For SSDs, use core_count * 2. Monitor and adjust based on p99 latency."
+    }
+  ]
+}

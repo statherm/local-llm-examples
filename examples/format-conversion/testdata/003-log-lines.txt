@@ -1,0 +1,5 @@
+2026-02-14T08:01:23Z INFO  [auth] User login successful user_id=42 ip=192.168.1.100
+2026-02-14T08:01:45Z WARN  [ratelimit] Rate limit approaching for client api-key-7f3a threshold=90%
+2026-02-14T08:02:01Z ERROR [payment] Payment processing failed order_id=ORD-9912 error="card declined"
+2026-02-14T08:02:15Z INFO  [http] Request completed method=GET path=/api/v1/users status=200 duration=23ms
+2026-02-14T08:02:30Z DEBUG [cache] Cache miss key=user:42:profile ttl_remaining=0s

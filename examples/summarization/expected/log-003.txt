@@ -1,0 +1,1 @@
+The application is in a crash loop, failing to start 3 consecutive times. Each attempt fails at the same point: database migration 041_add_audit_log cannot be applied because it references a column "user_id" that does not exist in the "audit_entries" table. The migration error is fatal and prevents the application from reaching a ready state. Overall health: unhealthy.

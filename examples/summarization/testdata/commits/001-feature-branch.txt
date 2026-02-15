@@ -1,0 +1,43 @@
+feat: add WebSocket support for real-time notifications
+
+Implement WebSocket upgrade handler and connection manager.
+Supports authenticated connections via JWT token in query param.
+
+---
+
+fix: handle connection drops gracefully
+
+Add ping/pong heartbeat every 30s. Automatically reconnect
+dropped connections with exponential backoff up to 5 minutes.
+
+---
+
+refactor: extract notification serializer
+
+Move notification-to-JSON conversion into its own package
+so it can be reused by both the REST API and WebSocket handler.
+
+---
+
+test: add integration tests for WebSocket notifications
+
+Cover connection lifecycle, authentication failures, message
+delivery ordering, and reconnection behavior.
+
+---
+
+docs: update API reference with WebSocket endpoint
+
+Add /ws/notifications endpoint documentation including
+authentication flow, message format, and error codes.
+
+---
+
+Files changed: 14 files (+892, -34)
+ api/ws/handler.go       | 156 +++++++++++
+ api/ws/manager.go       | 203 ++++++++++++++
+ api/ws/heartbeat.go     |  67 +++++
+ pkg/notify/serialize.go |  89 ++++++
+ api/rest/notify.go      |  34 +--
+ api/ws/handler_test.go  | 187 +++++++++++++
+ docs/api-reference.md   |  56 ++++

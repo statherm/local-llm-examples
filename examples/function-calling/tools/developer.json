@@ -1,0 +1,71 @@
+[
+  {
+    "name": "search_code",
+    "description": "Search for code patterns or text across the codebase",
+    "parameters": {
+      "pattern": {"type": "string", "description": "The search pattern or text to find"},
+      "path": {"type": "string", "description": "Directory or file path to search within (optional)"}
+    },
+    "required": ["pattern"]
+  },
+  {
+    "name": "read_file",
+    "description": "Read the contents of a file",
+    "parameters": {
+      "path": {"type": "string", "description": "Path to the file to read"}
+    },
+    "required": ["path"]
+  },
+  {
+    "name": "run_tests",
+    "description": "Run test suites or specific test files",
+    "parameters": {
+      "path": {"type": "string", "description": "Path to test file or directory (optional, runs all if omitted)"},
+      "verbose": {"type": "boolean", "description": "Show detailed test output"}
+    },
+    "required": []
+  },
+  {
+    "name": "create_file",
+    "description": "Create a new file with the given content",
+    "parameters": {
+      "path": {"type": "string", "description": "Path for the new file"},
+      "content": {"type": "string", "description": "Content to write to the file"}
+    },
+    "required": ["path", "content"]
+  },
+  {
+    "name": "edit_file",
+    "description": "Edit an existing file by replacing text or inserting at a line number",
+    "parameters": {
+      "path": {"type": "string", "description": "Path to the file to edit"},
+      "old_text": {"type": "string", "description": "Text to find and replace"},
+      "new_text": {"type": "string", "description": "Replacement text"}
+    },
+    "required": ["path", "old_text", "new_text"]
+  },
+  {
+    "name": "git_status",
+    "description": "Show the current git status including changed, staged, and untracked files",
+    "parameters": {},
+    "required": []
+  },
+  {
+    "name": "list_files",
+    "description": "List files and directories at a given path",
+    "parameters": {
+      "path": {"type": "string", "description": "Directory path to list"},
+      "recursive": {"type": "boolean", "description": "List files recursively"}
+    },
+    "required": ["path"]
+  },
+  {
+    "name": "explain_code",
+    "description": "Explain what a piece of code or file does",
+    "parameters": {
+      "path": {"type": "string", "description": "Path to the file to explain"},
+      "function_name": {"type": "string", "description": "Specific function to explain (optional)"}
+    },
+    "required": ["path"]
+  }
+]

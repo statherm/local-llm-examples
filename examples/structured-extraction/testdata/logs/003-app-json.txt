@@ -1,0 +1,1 @@
+{"ts":"2025-03-22T16:45:02.331Z","level":"error","logger":"payment-service","msg":"charge failed","error":"card_declined","customer_id":"cust_8vK2mN","amount":4999,"currency":"usd","request_id":"req_abc123xyz"}

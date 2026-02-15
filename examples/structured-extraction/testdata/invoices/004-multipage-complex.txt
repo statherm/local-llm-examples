@@ -1,0 +1,56 @@
+=========================================
+        PINNACLE CONSULTING GROUP
+        One Financial Plaza, 29th Floor
+        Boston, MA 02110
+        Tel: (617) 555-0199
+        EIN: 04-3928571
+=========================================
+
+INVOICE
+
+To:                                  Invoice No: PCG-2025-1583
+  MedTech Innovations Inc            Date:        April 2, 2025
+  2100 Research Park Dr              PO Number:   MT-PO-7744
+  Suite 300                          Terms:       Net 45
+  Raleigh, NC 27606                  Due Date:    May 17, 2025
+
+Attn: Lisa Chen, VP Engineering
+
+=========================================
+PROJECT: EHR Migration Assessment
+ENGAGEMENT: Phase 2 — Technical Architecture Review
+PERIOD: March 1–31, 2025
+=========================================
+
+Professional Services:
+
+  Senior Architect — J. Rodriguez
+    112 hours @ $285/hr                           $31,920.00
+
+  Cloud Infrastructure Analyst — M. Okoye
+    88 hours @ $215/hr                            $18,920.00
+
+  Data Migration Specialist — R. Patel
+    96 hours @ $245/hr                            $23,520.00
+
+  Project Manager — A. Vasquez
+    40 hours @ $195/hr                             $7,800.00
+
+Expenses:
+
+  Travel (BOS→RDU, 3 trips)                       $2,847.50
+  Cloud sandbox environment (AWS)                  $1,235.00
+
+---------------------------------------------------------
+                              Subtotal:           $86,242.50
+                  MA Sales Tax (6.25%):            $5,390.16
+                                TOTAL:            $91,632.66
+---------------------------------------------------------
+
+Payment via ACH preferred.
+Remit to: Pinnacle Consulting Group
+Routing: 021000089  Account: 483920174
+
+Past due invoices subject to 1.5% monthly finance charge.
+
+Thank you for choosing Pinnacle Consulting Group.

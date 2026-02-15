@@ -1,0 +1,9 @@
+From: Priya Nair <priya.nair@techstartup.io>
+
+We've been using DataForge Analytics for the past 4 months and the dashboard has been great. But since this morning the export-to-CSV feature just spins forever and never completes. I've tried Chrome and Firefox, cleared cache, different machine — same result. Our team needs to pull the weekly sales data for a board meeting tomorrow morning.
+
+This is urgent. Is there a known outage? Any workaround we can use in the meantime?
+
+— Priya Nair, Head of Data
+  TechStartup Inc.
+  (415) 555-0177

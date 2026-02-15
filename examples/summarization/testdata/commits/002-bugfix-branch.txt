@@ -1,0 +1,26 @@
+fix: prevent duplicate webhook deliveries
+
+Root cause: the delivery worker was not checking for in-flight
+requests before dispatching. Added a per-endpoint dedup cache
+with a 60-second TTL.
+
+---
+
+fix: correct webhook signature calculation for empty bodies
+
+The HMAC was being computed over "null" instead of an empty
+string when the webhook payload was empty. This caused
+signature validation failures on the receiver side.
+
+---
+
+test: add regression tests for webhook dedup and signatures
+
+---
+
+Files changed: 5 files (+143, -12)
+ internal/webhook/deliver.go      | 67 +++++++--
+ internal/webhook/dedup.go        | 45 ++++++
+ internal/webhook/signature.go    |  8 +-
+ internal/webhook/deliver_test.go | 89 ++++++++++
+ internal/webhook/dedup_test.go   | 34 ++++

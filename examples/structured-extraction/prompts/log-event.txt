@@ -1,0 +1,21 @@
+Parse the following log line into a structured JSON event. Return a JSON object matching this schema:
+
+{
+  "timestamp": "string — ISO 8601 datetime (e.g., 2025-01-15T14:30:00Z)",
+  "level": "string — one of: DEBUG, INFO, WARN, ERROR, FATAL",
+  "source": "string — the service, process, or component that produced the log",
+  "message": "string — the core log message without timestamp, level, or source prefixes",
+  "metadata": {
+    "key": "value pairs extracted from the log (request IDs, IP addresses, status codes, etc.)"
+  }
+}
+
+Rules:
+- level must be normalized to uppercase (e.g., "warning" -> "WARN", "err" -> "ERROR")
+- timestamp must be converted to ISO 8601 format regardless of input format
+- metadata should capture any structured key-value data found in the log line
+- If metadata contains no key-value pairs, use an empty object {}
+- Return ONLY the JSON object, no other text
+
+Log line:
+{{INPUT}}

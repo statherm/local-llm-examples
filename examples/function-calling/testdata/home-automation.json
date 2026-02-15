@@ -1,0 +1,22 @@
+[
+  {"id": "home-01", "request": "It's getting cold, bump the heat up to 72"},
+  {"id": "home-02", "request": "Turn off the kitchen lights"},
+  {"id": "home-03", "request": "Lock the front door"},
+  {"id": "home-04", "request": "Play some jazz in the living room"},
+  {"id": "home-05", "request": "What's the weather going to be like tomorrow?"},
+  {"id": "home-06", "request": "Set a timer for 15 minutes for the pasta"},
+  {"id": "home-07", "request": "Arm the security system, we're leaving"},
+  {"id": "home-08", "request": "Tell Sarah that dinner is ready"},
+  {"id": "home-09", "request": "Check the front door camera"},
+  {"id": "home-10", "request": "Start the movie night scene"},
+  {"id": "home-11", "request": "Dim the bedroom lights to 30 percent"},
+  {"id": "home-12", "request": "Unlock the garage door"},
+  {"id": "home-13", "request": "Turn on the living room lights"},
+  {"id": "home-14", "request": "Set the temperature to 20 degrees celsius"},
+  {"id": "home-15", "request": "Play the workout playlist everywhere at volume 80"},
+  {"id": "home-16", "request": "Is it going to rain today?"},
+  {"id": "home-17", "request": "Disarm the alarm"},
+  {"id": "home-18", "request": "Send a notification to Mike that I'll be home late"},
+  {"id": "home-19", "request": "Show me what's happening in the backyard"},
+  {"id": "home-20", "request": "Activate the bedtime routine"}
+]

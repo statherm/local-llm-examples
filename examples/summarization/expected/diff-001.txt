@@ -1,0 +1,1 @@
+Added automatic retry with exponential backoff for HTTP requests. Failed requests due to server errors (5xx) are now retried up to 3 times with increasing delays, improving reliability when upstream services experience transient failures.

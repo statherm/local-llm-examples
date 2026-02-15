@@ -1,0 +1,1 @@
+Added pagination support to the list items API endpoint. Responses now include page, page_size, total_count, and total_pages fields. Clients can control pagination via page and page_size query parameters (default 25, max 100).

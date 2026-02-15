@@ -1,0 +1,6 @@
+Convert the following Markdown table into a JSON array. Each row becomes an object with column headers as keys. Preserve the exact values from the table.
+
+Respond with ONLY the JSON array, nothing else.
+
+Markdown table:
+{{.Input}}

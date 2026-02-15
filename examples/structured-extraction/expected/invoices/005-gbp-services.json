@@ -1,0 +1,36 @@
+{
+  "vendor_name": "Brightwave Digital Media",
+  "invoice_number": "BDM/2025/0203",
+  "date": "2025-02-15",
+  "line_items": [
+    {
+      "description": "Monthly SEO Management (Feb 2025)",
+      "quantity": 1,
+      "unit_price": 1200.00,
+      "amount": 1200.00
+    },
+    {
+      "description": "Google Ads Management Fee",
+      "quantity": 1,
+      "unit_price": 450.00,
+      "amount": 450.00
+    },
+    {
+      "description": "Content Writing (4 blog posts)",
+      "quantity": 1,
+      "unit_price": 600.00,
+      "amount": 600.00
+    },
+    {
+      "description": "Analytics Report & Strategy Call",
+      "quantity": 1,
+      "unit_price": 150.00,
+      "amount": 150.00
+    }
+  ],
+  "subtotal": 2400.00,
+  "tax": 480.00,
+  "total": 2880.00,
+  "currency": "GBP",
+  "payment_terms": "Payment due upon receipt"
+}

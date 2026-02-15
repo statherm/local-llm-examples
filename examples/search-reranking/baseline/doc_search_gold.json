@@ -1,0 +1,23 @@
+{
+  "query": "How do I configure database connection pooling in Go?",
+  "ranking": [
+    {"id": "doc-002", "relevance": 3, "reason": "Directly answers the question with SetMaxOpenConns and SetMaxIdleConns"},
+    {"id": "doc-004", "relevance": 3, "reason": "Best practices for connection pool configuration with specific recommendations"},
+    {"id": "doc-015", "relevance": 3, "reason": "ConnMaxLifetime and ConnMaxIdleTime are key pooling configuration options"},
+    {"id": "doc-008", "relevance": 3, "reason": "pgxpool is a major Go database connection pooling library with config details"},
+    {"id": "doc-006", "relevance": 2, "reason": "Explains how database/sql pooling works internally"},
+    {"id": "doc-018", "relevance": 2, "reason": "Pool sizing formula — directly relevant to configuring pool size"},
+    {"id": "doc-011", "relevance": 2, "reason": "GORM-specific pooling config — relevant for GORM users"},
+    {"id": "doc-009", "relevance": 2, "reason": "Monitoring pool stats — related to managing pool configuration"},
+    {"id": "doc-014", "relevance": 1, "reason": "Connection leaks are a pooling concern but not about configuration"},
+    {"id": "doc-001", "relevance": 1, "reason": "database/sql overview — tangentially related"},
+    {"id": "doc-003", "relevance": 1, "reason": "PostgreSQL tutorial — covers connections but not pooling specifically"},
+    {"id": "doc-017", "relevance": 1, "reason": "REST API with sqlx — uses database but not focused on pooling"},
+    {"id": "doc-005", "relevance": 0, "reason": "HTTP connection pooling, not database connection pooling"},
+    {"id": "doc-012", "relevance": 0, "reason": "Redis pooling, not database connection pooling"},
+    {"id": "doc-007", "relevance": 0, "reason": "Go concurrency patterns — unrelated to database pooling"},
+    {"id": "doc-016", "relevance": 0, "reason": "General performance optimization — not about DB pooling"},
+    {"id": "doc-010", "relevance": 0, "reason": "Python to Go migration — unrelated"},
+    {"id": "doc-013", "relevance": 0, "reason": "Go release notes — completely unrelated"}
+  ]
+}

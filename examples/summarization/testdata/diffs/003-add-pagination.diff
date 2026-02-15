@@ -1,0 +1,61 @@
+diff --git a/api/handlers/list.go b/api/handlers/list.go
+index 1a2b3c4..5d6e7f8 100644
+--- a/api/handlers/list.go
++++ b/api/handlers/list.go
+@@ -3,6 +3,7 @@ package handlers
+ import (
+ 	"encoding/json"
+ 	"net/http"
++	"strconv"
+ )
+
+ type ListResponse struct {
+@@ -10,13 +11,43 @@ type ListResponse struct {
++	Page       int         `json:"page"`
++	PageSize   int         `json:"page_size"`
++	TotalCount int         `json:"total_count"`
++	TotalPages int         `json:"total_pages"`
+ }
+
++const defaultPageSize = 25
++const maxPageSize = 100
++
+ func (h *Handler) ListItems(w http.ResponseWriter, r *http.Request) {
+-	items, err := h.store.GetAll(r.Context())
++	page, pageSize := parsePagination(r)
++
++	total, err := h.store.Count(r.Context())
++	if err != nil {
++		http.Error(w, "internal error", http.StatusInternalServerError)
++		return
++	}
++
++	offset := (page - 1) * pageSize
++	items, err := h.store.GetPage(r.Context(), offset, pageSize)
+ 	if err != nil {
+ 		http.Error(w, "internal error", http.StatusInternalServerError)
+ 		return
+ 	}
+
+-	json.NewEncoder(w).Encode(ListResponse{Items: items})
++	totalPages := (total + pageSize - 1) / pageSize
++	json.NewEncoder(w).Encode(ListResponse{
++		Items:      items,
++		Page:       page,
++		PageSize:   pageSize,
++		TotalCount: total,
++		TotalPages: totalPages,
++	})
++}
++
++func parsePagination(r *http.Request) (int, int) {
++	page, _ := strconv.Atoi(r.URL.Query().Get("page"))
++	if page < 1 {
++		page = 1
++	}
++	pageSize, _ := strconv.Atoi(r.URL.Query().Get("page_size"))
++	if pageSize < 1 || pageSize > maxPageSize {
++		pageSize = defaultPageSize
++	}
++	return page, pageSize
+ }

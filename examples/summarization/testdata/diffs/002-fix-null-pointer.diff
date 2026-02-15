@@ -1,0 +1,31 @@
+diff --git a/internal/auth/session.go b/internal/auth/session.go
+index 9c8d7e6..5f4a3b2 100644
+--- a/internal/auth/session.go
++++ b/internal/auth/session.go
+@@ -28,7 +28,10 @@ func (m *SessionManager) GetUser(ctx context.Context) (*User, error) {
+ 	}
+
+ 	session := m.store.Get(token)
+-	return session.User, nil
++	if session == nil {
++		return nil, ErrSessionExpired
++	}
++	return session.User, nil
+ }
+
+ func (m *SessionManager) Refresh(ctx context.Context) error {
+@@ -38,6 +41,9 @@ func (m *SessionManager) Refresh(ctx context.Context) error {
+ 	}
+
+ 	session := m.store.Get(token)
++	if session == nil {
++		return ErrSessionExpired
++	}
+ 	session.ExpiresAt = time.Now().Add(m.ttl)
+ 	m.store.Set(token, session)
+ 	return nil
+@@ -47,3 +53,5 @@ var (
+ 	ErrNoToken       = errors.New("no auth token in context")
+ 	ErrInvalidToken  = errors.New("invalid auth token")
++	ErrSessionExpired = errors.New("session expired or not found")
+ )

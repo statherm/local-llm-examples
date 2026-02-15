@@ -1,0 +1,6 @@
+product,price,quantity,in_stock,weight_kg,category
+Widget A,29.99,150,true,0.5,electronics
+Widget B,49.99,0,false,1.2,electronics
+Gadget X,199.99,25,true,2.8,hardware
+Gadget Y,89.50,75,true,0.3,accessories
+Tool Z,15.00,500,true,0.1,accessories

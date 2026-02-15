@@ -1,0 +1,29 @@
+Extract structured data from the following invoice text. Return a JSON object matching this schema:
+
+{
+  "vendor_name": "string — the company or person who issued the invoice",
+  "invoice_number": "string — the invoice ID or number",
+  "date": "string — invoice date in YYYY-MM-DD format",
+  "line_items": [
+    {
+      "description": "string — item or service description",
+      "quantity": "number",
+      "unit_price": "number — price per unit",
+      "amount": "number — line total (quantity * unit_price)"
+    }
+  ],
+  "subtotal": "number — sum of all line item amounts before tax",
+  "tax": "number — tax amount (0 if not listed)",
+  "total": "number — final total including tax",
+  "currency": "string — three-letter currency code (USD, EUR, GBP, etc.)",
+  "payment_terms": "string — payment terms if mentioned, otherwise empty string"
+}
+
+Rules:
+- All monetary values should be numbers, not strings (e.g., 150.00 not "$150.00")
+- Dates must be in YYYY-MM-DD format
+- If a field is not present in the invoice, use a reasonable default (0 for numbers, empty string for text)
+- Return ONLY the JSON object, no other text
+
+Invoice text:
+{{INPUT}}

@@ -1,0 +1,19 @@
+{
+  "schema": "transactions",
+  "rules": [
+    {"field": "amount", "rule": "range", "min": 0.01, "max": 10000.00},
+    {"field": "currency", "rule": "enum", "values": ["USD"]},
+    {"field": "type", "rule": "enum", "values": ["purchase", "refund", "subscription"]},
+    {"field": "status", "rule": "enum", "values": ["completed", "pending", "failed"]},
+    {"field": "transaction_id", "rule": "pattern", "regex": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"},
+    {"field": "user_id", "rule": "range", "min": 1001, "max": 1100},
+    {"field": "timestamp", "rule": "pattern", "regex": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"},
+    {"field": "is_flagged", "rule": "type", "expected_type": "boolean"},
+    {"field": "transaction_id", "rule": "unique"},
+    {"field": "category", "rule": "enum", "values": ["food", "transport", "entertainment", "utilities", "shopping", "software"]}
+  ],
+  "distribution_checks": [
+    {"field": "is_flagged", "check": "approximate_ratio", "value": true, "target_ratio": 0.05, "tolerance": 0.15},
+    {"field": "type", "check": "all_values_present", "values": ["purchase", "refund", "subscription"]}
+  ]
+}

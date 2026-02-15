@@ -1,0 +1,1 @@
+Mar 14 2025 22:01:55 db-primary postgres[4421]: WARNING:  terminating connection due to idle-in-transaction timeout  user=appuser database=production client_addr=10.2.3.45

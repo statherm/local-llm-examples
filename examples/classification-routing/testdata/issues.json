@@ -1,0 +1,102 @@
+[
+  {
+    "id": "issue-01",
+    "title": "Login fails with 500 error after password reset",
+    "body": "After resetting my password via the forgot password flow, attempting to log in gives a 500 Internal Server Error. The error appears immediately after submitting credentials. Tried clearing cookies and different browsers. Consistently reproducible."
+  },
+  {
+    "id": "issue-02",
+    "title": "Add dark mode support",
+    "body": "It would be great to have a dark mode theme option. Many users work late at night and the bright white background causes eye strain. This could be a toggle in user settings."
+  },
+  {
+    "id": "issue-03",
+    "title": "How do I configure webhook retries?",
+    "body": "I've set up webhooks but some of them fail occasionally due to my server being briefly unavailable. Is there a way to configure automatic retries? I couldn't find this in the docs."
+  },
+  {
+    "id": "issue-04",
+    "title": "API reference for batch endpoints is missing examples",
+    "body": "The batch API documentation at /docs/api/batch has endpoint descriptions but no request/response examples. Every other section has curl examples. Please add examples for POST /batch/create and GET /batch/status."
+  },
+  {
+    "id": "issue-05",
+    "title": "Dashboard takes 15+ seconds to load with 1000 items",
+    "body": "When I have more than 1000 items in my dashboard, the page load time goes from under 1 second to over 15 seconds. The browser shows the main thread is blocked during rendering. This makes the product unusable for power users."
+  },
+  {
+    "id": "issue-06",
+    "title": "CSV export includes deleted records",
+    "body": "When exporting data to CSV, soft-deleted records are included in the output. They should be filtered out by default. This is leaking data that users have intentionally deleted."
+  },
+  {
+    "id": "issue-07",
+    "title": "Support for custom fields on projects",
+    "body": "We'd like the ability to add custom metadata fields to projects. For example, adding a 'department' or 'budget code' field. This would help with internal tracking and reporting. Other project management tools support this."
+  },
+  {
+    "id": "issue-08",
+    "title": "What's the rate limit for the search API?",
+    "body": "I'm building an integration that makes frequent search queries. The docs mention rate limiting but don't specify the actual limits. What are the rate limits for the /api/search endpoint? Are they per-user or per-API-key?"
+  },
+  {
+    "id": "issue-09",
+    "title": "Memory leak in background worker process",
+    "body": "The background job worker process gradually consumes more memory over time. After ~24 hours it reaches 4GB and the OOM killer terminates it. No errors in logs, just steadily increasing RSS. Using version 3.2.1."
+  },
+  {
+    "id": "issue-10",
+    "title": "Database queries are not using indexes after migration",
+    "body": "After running migration 20240315, several queries in the reports module switched to full table scans. EXPLAIN shows the planner is ignoring the idx_reports_created_at index. Query time went from 50ms to 8 seconds on our 2M row table."
+  },
+  {
+    "id": "issue-11",
+    "title": "Add SSO login via SAML",
+    "body": "Our organization requires SAML-based SSO for all tools. We can't adopt this product org-wide until SAML authentication is supported. OAuth is available but our IdP only supports SAML 2.0."
+  },
+  {
+    "id": "issue-12",
+    "title": "Typo in the getting started guide",
+    "body": "On the getting started page, step 3 says to run 'npm install' but the project uses yarn. The command should be 'yarn install'. Also, the screenshot in step 5 shows the old UI."
+  },
+  {
+    "id": "issue-13",
+    "title": "File upload silently fails for files over 50MB",
+    "body": "When uploading files larger than 50MB, the upload progress bar reaches 100% but the file never appears. No error message is shown. The server returns a 413 but the frontend doesn't handle it. Expected: clear error message showing the file size limit."
+  },
+  {
+    "id": "issue-14",
+    "title": "Slow response times on /api/analytics endpoint",
+    "body": "The /api/analytics endpoint takes 3-5 seconds to respond even for small date ranges. Profiling shows it's doing N+1 queries for each metric. This is blocking our real-time dashboard from updating frequently."
+  },
+  {
+    "id": "issue-15",
+    "title": "How to set up CI/CD pipeline with your CLI tool?",
+    "body": "We want to integrate your CLI into our GitHub Actions workflow. Is there a recommended way to cache dependencies and handle authentication tokens in CI? Are there any example workflow files we can reference?"
+  },
+  {
+    "id": "issue-16",
+    "title": "Notification emails sent to deactivated users",
+    "body": "Users who have been deactivated are still receiving notification emails. When an admin deactivates a user account, all email notifications should stop immediately. This is a compliance issue for us."
+  },
+  {
+    "id": "issue-17",
+    "title": "Add ability to bulk archive projects",
+    "body": "Currently projects can only be archived one at a time through the UI. When quarterly cleanup happens, we need to archive 50+ projects. A bulk archive option (checkbox select + archive button) would save significant time."
+  },
+  {
+    "id": "issue-18",
+    "title": "REST API documentation needs authentication section",
+    "body": "The API docs jump straight into endpoints without explaining how authentication works. There should be a dedicated section covering API key generation, header format, token refresh, and common auth errors."
+  },
+  {
+    "id": "issue-19",
+    "title": "Page renders blank on Safari 17",
+    "body": "On Safari 17 (macOS Sonoma), the main application page renders completely blank after login. DevTools console shows 'TypeError: structuredClone is not available'. Works fine on Chrome and Firefox. This affects all Safari 17 users."
+  },
+  {
+    "id": "issue-20",
+    "title": "Webhook delivery latency increased to 30+ seconds",
+    "body": "Starting yesterday, webhook deliveries that normally arrive within 1-2 seconds are now taking 30-60 seconds. Our webhook logs show the delay is on the sending side, not our receiver. This is breaking time-sensitive integrations."
+  }
+]

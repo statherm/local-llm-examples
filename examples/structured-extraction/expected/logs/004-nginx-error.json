@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-01-18T03:22:17Z",
+  "level": "ERROR",
+  "source": "nginx",
+  "message": "upstream timed out (110: Connection timed out) while connecting to upstream",
+  "metadata": {
+    "pid": "1834",
+    "connection": "5765",
+    "client_ip": "10.0.0.88",
+    "server": "api.example.com",
+    "request": "POST /api/v1/upload HTTP/2.0",
+    "upstream": "http://127.0.0.1:8080/api/v1/upload"
+  }
+}

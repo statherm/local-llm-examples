@@ -1,0 +1,6 @@
+id,name,email,age,active,created_at
+1,Alice Johnson,alice@example.com,34,true,2025-03-15
+2,Bob Smith,bob@example.com,28,true,2025-06-22
+3,Carol Williams,carol@example.com,45,false,2024-11-01
+4,David Brown,david@example.com,31,true,2025-01-10
+5,Eve Davis,eve@example.com,27,false,2025-08-30

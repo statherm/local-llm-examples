@@ -1,0 +1,1 @@
+2025/01/18 03:22:17 [error] 1834#1834: *5765 upstream timed out (110: Connection timed out) while connecting to upstream, client: 10.0.0.88, server: api.example.com, request: "POST /api/v1/upload HTTP/2.0", upstream: "http://127.0.0.1:8080/api/v1/upload"

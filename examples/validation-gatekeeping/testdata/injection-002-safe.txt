@@ -1,0 +1,1 @@
+What are the best practices for error handling in Go? I want to understand when to use sentinel errors versus custom error types.

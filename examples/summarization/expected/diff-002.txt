@@ -1,0 +1,1 @@
+Fixed a null pointer crash in session management when accessing expired or evicted sessions. The GetUser and Refresh methods now return a clear ErrSessionExpired error instead of panicking.

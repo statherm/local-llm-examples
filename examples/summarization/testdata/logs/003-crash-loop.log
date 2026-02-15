@@ -1,0 +1,21 @@
+2026-02-14T09:15:01Z INFO  [main] Starting application version 2.4.0
+2026-02-14T09:15:01Z INFO  [config] Loaded configuration from /etc/app/config.yaml
+2026-02-14T09:15:02Z INFO  [db] Connecting to PostgreSQL at db.internal:5432
+2026-02-14T09:15:02Z INFO  [db] Connection pool established (min=5, max=20)
+2026-02-14T09:15:02Z INFO  [db] Running migrations... 1 pending
+2026-02-14T09:15:03Z ERROR [db] Migration 041_add_audit_log FAILED: column "user_id" referenced in foreign key does not exist in table "audit_entries"
+2026-02-14T09:15:03Z FATAL [main] Cannot start: migration failure
+2026-02-14T09:15:30Z INFO  [main] Starting application version 2.4.0
+2026-02-14T09:15:30Z INFO  [config] Loaded configuration from /etc/app/config.yaml
+2026-02-14T09:15:31Z INFO  [db] Connecting to PostgreSQL at db.internal:5432
+2026-02-14T09:15:31Z INFO  [db] Connection pool established (min=5, max=20)
+2026-02-14T09:15:31Z INFO  [db] Running migrations... 1 pending
+2026-02-14T09:15:32Z ERROR [db] Migration 041_add_audit_log FAILED: column "user_id" referenced in foreign key does not exist in table "audit_entries"
+2026-02-14T09:15:32Z FATAL [main] Cannot start: migration failure
+2026-02-14T09:16:05Z INFO  [main] Starting application version 2.4.0
+2026-02-14T09:16:05Z INFO  [config] Loaded configuration from /etc/app/config.yaml
+2026-02-14T09:16:06Z INFO  [db] Connecting to PostgreSQL at db.internal:5432
+2026-02-14T09:16:06Z INFO  [db] Connection pool established (min=5, max=20)
+2026-02-14T09:16:06Z INFO  [db] Running migrations... 1 pending
+2026-02-14T09:16:07Z ERROR [db] Migration 041_add_audit_log FAILED: column "user_id" referenced in foreign key does not exist in table "audit_entries"
+2026-02-14T09:16:07Z FATAL [main] Cannot start: migration failure

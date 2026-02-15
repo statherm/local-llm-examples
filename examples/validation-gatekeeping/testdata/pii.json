@@ -1,0 +1,82 @@
+[
+  {
+    "id": "pii-01",
+    "text": "Please update my shipping address to 1234 Oak Street, Springfield, IL 62701"
+  },
+  {
+    "id": "pii-02",
+    "text": "The server responded with a 504 gateway timeout after 30 seconds"
+  },
+  {
+    "id": "pii-03",
+    "text": "You can reach me at john.doe@example.com or call 555-867-5309"
+  },
+  {
+    "id": "pii-04",
+    "text": "The quarterly revenue increased by 15% compared to last year"
+  },
+  {
+    "id": "pii-05",
+    "text": "My social security number is 123-45-6789, I need it for the application"
+  },
+  {
+    "id": "pii-06",
+    "text": "The deployment failed because the Docker image tag was incorrect"
+  },
+  {
+    "id": "pii-07",
+    "text": "Contact Sarah Johnson at the marketing department for more details"
+  },
+  {
+    "id": "pii-08",
+    "text": "The algorithm uses a binary search tree with O(log n) complexity"
+  },
+  {
+    "id": "pii-09",
+    "text": "Send the invoice to Robert Smith, 456 Elm Ave, Austin TX 78701, email: rsmith@company.org"
+  },
+  {
+    "id": "pii-10",
+    "text": "We need to increase the connection pool size from 10 to 25"
+  },
+  {
+    "id": "pii-11",
+    "text": "My credit card number is 4532-1234-5678-9012, expiry 03/28"
+  },
+  {
+    "id": "pii-12",
+    "text": "The application uses React on the frontend and Go on the backend"
+  },
+  {
+    "id": "pii-13",
+    "text": "Patient ID 4420 was admitted on Tuesday and discharged Thursday"
+  },
+  {
+    "id": "pii-14",
+    "text": "Please whitelist IP range 10.0.0.0/24 in the firewall rules"
+  },
+  {
+    "id": "pii-15",
+    "text": "My passport number is AB1234567 and my date of birth is March 15, 1990"
+  },
+  {
+    "id": "pii-16",
+    "text": "The cache hit ratio improved from 60% to 85% after optimization"
+  },
+  {
+    "id": "pii-17",
+    "text": "Forward this to Lisa Chen at lisa.chen@acme.com, phone 415-555-0142"
+  },
+  {
+    "id": "pii-18",
+    "text": "The memory leak was caused by unclosed database connections in the worker pool"
+  },
+  {
+    "id": "pii-19",
+    "text": "Account holder James Wilson, DOB 1985-07-22, SSN ending in 4521"
+  },
+  {
+    "id": "pii-20",
+    "text": "Kubernetes pod restart count exceeded the threshold of 5 within 10 minutes"
+  }
+]

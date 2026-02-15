@@ -1,0 +1,1 @@
+I'm getting a CrashLoopBackOff on my pod after upgrading to Kubernetes 1.29. The container starts, runs for about 10 seconds, then exits with code 137. I've checked the resource limits and they seem fine. Any ideas?

@@ -1,0 +1,11 @@
+redis:
+  host: cache.internal
+  port: 6379
+  database: 0
+  pool_size: 10
+  idle_timeout: 300
+  tls:
+    enabled: true
+    verify_certificate: true
+  key_prefix: myapp
+  default_ttl: 3600

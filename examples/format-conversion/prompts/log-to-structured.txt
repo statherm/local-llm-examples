@@ -1,0 +1,10 @@
+Convert the following log lines into a JSON array of structured events. Each event should have these fields:
+- "timestamp": ISO 8601 string
+- "level": one of "INFO", "WARN", "ERROR", "DEBUG", "FATAL"
+- "source": the component or logger name in brackets
+- "message": the log message text
+
+Respond with ONLY the JSON array, nothing else.
+
+Log lines:
+{{.Input}}

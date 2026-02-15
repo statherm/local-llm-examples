@@ -1,0 +1,31 @@
+{
+  "name": "user_profiles",
+  "description": "Generate realistic user profile records for a SaaS application",
+  "count": 10,
+  "fields": [
+    {"name": "id", "type": "integer", "description": "Unique user ID, starting from 1001"},
+    {"name": "first_name", "type": "string", "description": "Realistic first name"},
+    {"name": "last_name", "type": "string", "description": "Realistic last name"},
+    {"name": "email", "type": "string", "description": "Email address matching first_name.last_name pattern"},
+    {"name": "age", "type": "integer", "description": "Age in years"},
+    {"name": "city", "type": "string", "description": "US city name"},
+    {"name": "state", "type": "string", "description": "US state abbreviation (2 letters)"},
+    {"name": "zip_code", "type": "string", "description": "5-digit US ZIP code"},
+    {"name": "plan", "type": "string", "description": "Subscription plan: free, basic, pro, or enterprise"},
+    {"name": "signup_date", "type": "string", "description": "ISO 8601 date (YYYY-MM-DD), between 2023-01-01 and 2025-12-31"},
+    {"name": "is_active", "type": "boolean", "description": "Whether the account is currently active"}
+  ],
+  "example": {
+    "id": 1001,
+    "first_name": "Sarah",
+    "last_name": "Chen",
+    "email": "sarah.chen@example.com",
+    "age": 34,
+    "city": "Austin",
+    "state": "TX",
+    "zip_code": "78701",
+    "plan": "pro",
+    "signup_date": "2024-03-15",
+    "is_active": true
+  }
+}

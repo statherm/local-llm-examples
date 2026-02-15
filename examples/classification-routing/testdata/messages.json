@@ -1,0 +1,82 @@
+[
+  {
+    "id": "msg-01",
+    "text": "I was charged twice for my subscription this month. Can I get a refund for the duplicate charge?"
+  },
+  {
+    "id": "msg-02",
+    "text": "The app keeps crashing when I try to open the settings page. I'm on Android 14."
+  },
+  {
+    "id": "msg-03",
+    "text": "I need to update the email address on my account. The current one is no longer active."
+  },
+  {
+    "id": "msg-04",
+    "text": "I want to cancel my subscription effective immediately. Please confirm when it's done."
+  },
+  {
+    "id": "msg-05",
+    "text": "Just wanted to say the new dashboard redesign is fantastic. Much easier to find what I need."
+  },
+  {
+    "id": "msg-06",
+    "text": "Can you explain the difference between the Pro and Enterprise plans? The pricing page isn't clear."
+  },
+  {
+    "id": "msg-07",
+    "text": "My API integration stopped working after the update. Getting 401 errors on all requests now."
+  },
+  {
+    "id": "msg-08",
+    "text": "Please delete my account and all associated data. I no longer use the service."
+  },
+  {
+    "id": "msg-09",
+    "text": "The monthly invoice doesn't include the discount code I applied during checkout."
+  },
+  {
+    "id": "msg-10",
+    "text": "I can't log in — it says my password is wrong but I just reset it five minutes ago."
+  },
+  {
+    "id": "msg-11",
+    "text": "How do I transfer ownership of my team workspace to another admin?"
+  },
+  {
+    "id": "msg-12",
+    "text": "I'm done with this product. The last three updates broke things that were working fine. Cancelling."
+  },
+  {
+    "id": "msg-13",
+    "text": "Your product saved our team so much time this quarter. We went from 6 hours of manual work to 30 minutes."
+  },
+  {
+    "id": "msg-14",
+    "text": "Is there a way to export my data before I close my account?"
+  },
+  {
+    "id": "msg-15",
+    "text": "The mobile app notifications are not coming through even though they're enabled in settings."
+  },
+  {
+    "id": "msg-16",
+    "text": "I accidentally upgraded to the annual plan. Can this be reversed? I want to stay on monthly billing."
+  },
+  {
+    "id": "msg-17",
+    "text": "The search feature returns completely irrelevant results. Searching for 'invoices' shows blog posts."
+  },
+  {
+    "id": "msg-18",
+    "text": "Can I add more users to my plan without upgrading? We just need two more seats."
+  },
+  {
+    "id": "msg-19",
+    "text": "Your documentation says the feature is available but I don't see it in my account. Is it region-locked?"
+  },
+  {
+    "id": "msg-20",
+    "text": "What happens to my data after the trial ends? Will it be deleted?"
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "timestamp": { "type": "string", "description": "ISO 8601 datetime" },
+    "level": {
+      "type": "string",
+      "enum": ["DEBUG", "INFO", "WARN", "ERROR", "FATAL"]
+    },
+    "source": { "type": "string" },
+    "message": { "type": "string" },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    }
+  },
+  "required": ["timestamp", "level", "source", "message"]
+}

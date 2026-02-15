@@ -1,0 +1,8 @@
+{
+  "customer_name": "Priya Nair",
+  "product": "DataForge Analytics",
+  "issue_category": "technical",
+  "severity": "critical",
+  "requested_action": "Fix the CSV export feature or provide a workaround",
+  "contact_info": "priya.nair@techstartup.io"
+}

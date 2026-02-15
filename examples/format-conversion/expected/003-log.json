@@ -1,0 +1,7 @@
+[
+  {"timestamp": "2026-02-14T08:01:23Z", "level": "INFO", "source": "auth", "message": "User login successful user_id=42 ip=192.168.1.100"},
+  {"timestamp": "2026-02-14T08:01:45Z", "level": "WARN", "source": "ratelimit", "message": "Rate limit approaching for client api-key-7f3a threshold=90%"},
+  {"timestamp": "2026-02-14T08:02:01Z", "level": "ERROR", "source": "payment", "message": "Payment processing failed order_id=ORD-9912 error=\"card declined\""},
+  {"timestamp": "2026-02-14T08:02:15Z", "level": "INFO", "source": "http", "message": "Request completed method=GET path=/api/v1/users status=200 duration=23ms"},
+  {"timestamp": "2026-02-14T08:02:30Z", "level": "DEBUG", "source": "cache", "message": "Cache miss key=user:42:profile ttl_remaining=0s"}
+]

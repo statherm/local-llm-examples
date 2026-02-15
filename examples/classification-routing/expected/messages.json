@@ -1,0 +1,22 @@
+[
+  {"id": "msg-01", "intent": "billing", "sentiment": "negative", "needs_human": true},
+  {"id": "msg-02", "intent": "technical", "sentiment": "negative", "needs_human": false},
+  {"id": "msg-03", "intent": "account", "sentiment": "neutral", "needs_human": false},
+  {"id": "msg-04", "intent": "cancellation", "sentiment": "neutral", "needs_human": true},
+  {"id": "msg-05", "intent": "feedback", "sentiment": "positive", "needs_human": false},
+  {"id": "msg-06", "intent": "billing", "sentiment": "neutral", "needs_human": false},
+  {"id": "msg-07", "intent": "technical", "sentiment": "negative", "needs_human": false},
+  {"id": "msg-08", "intent": "cancellation", "sentiment": "neutral", "needs_human": true},
+  {"id": "msg-09", "intent": "billing", "sentiment": "negative", "needs_human": true},
+  {"id": "msg-10", "intent": "technical", "sentiment": "negative", "needs_human": false},
+  {"id": "msg-11", "intent": "account", "sentiment": "neutral", "needs_human": false},
+  {"id": "msg-12", "intent": "cancellation", "sentiment": "negative", "needs_human": true},
+  {"id": "msg-13", "intent": "feedback", "sentiment": "positive", "needs_human": false},
+  {"id": "msg-14", "intent": "account", "sentiment": "neutral", "needs_human": false},
+  {"id": "msg-15", "intent": "technical", "sentiment": "negative", "needs_human": false},
+  {"id": "msg-16", "intent": "billing", "sentiment": "negative", "needs_human": true},
+  {"id": "msg-17", "intent": "technical", "sentiment": "negative", "needs_human": false},
+  {"id": "msg-18", "intent": "billing", "sentiment": "neutral", "needs_human": false},
+  {"id": "msg-19", "intent": "technical", "sentiment": "neutral", "needs_human": false},
+  {"id": "msg-20", "intent": "account", "sentiment": "neutral", "needs_human": false}
+]

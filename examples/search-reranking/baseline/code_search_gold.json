@@ -1,0 +1,20 @@
+{
+  "query": "function to validate email address format",
+  "ranking": [
+    {"id": "code-001", "relevance": 3, "reason": "Exact match — ValidateEmail function that checks email format"},
+    {"id": "code-003", "relevance": 3, "reason": "Tests for ValidateEmail — directly about email validation"},
+    {"id": "code-014", "relevance": 2, "reason": "ValidateEmailDomain — validates email domain with MX lookup"},
+    {"id": "code-008", "relevance": 2, "reason": "IsDisposableEmail — email validation related function"},
+    {"id": "code-010", "relevance": 2, "reason": "NormalizeEmail — email processing function, closely related"},
+    {"id": "code-006", "relevance": 1, "reason": "Generic validation framework — could be used for email validation"},
+    {"id": "code-005", "relevance": 1, "reason": "Phone validation — similar pattern but different field"},
+    {"id": "code-012", "relevance": 1, "reason": "URL validation — similar pattern but different field"},
+    {"id": "code-004", "relevance": 1, "reason": "User model with email field — tangentially related"},
+    {"id": "code-013", "relevance": 1, "reason": "Email uniqueness index — database-level email concern"},
+    {"id": "code-015", "relevance": 0, "reason": "Password reset handler — uses email but not about validation"},
+    {"id": "code-002", "relevance": 0, "reason": "CreateUser handler — unrelated to email validation"},
+    {"id": "code-011", "relevance": 0, "reason": "SendEmail — sending email, not validating format"},
+    {"id": "code-007", "relevance": 0, "reason": "Auth middleware — unrelated to email validation"},
+    {"id": "code-009", "relevance": 0, "reason": "Config loading — completely unrelated"}
+  ]
+}

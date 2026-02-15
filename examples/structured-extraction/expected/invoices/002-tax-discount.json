@@ -1,0 +1,36 @@
+{
+  "vendor_name": "Nordic Design Studio",
+  "invoice_number": "NDS-4421",
+  "date": "2025-01-28",
+  "line_items": [
+    {
+      "description": "Brand Identity Package",
+      "quantity": 1,
+      "unit_price": 3500.00,
+      "amount": 3500.00
+    },
+    {
+      "description": "Website Mockups (5 pages)",
+      "quantity": 5,
+      "unit_price": 400.00,
+      "amount": 2000.00
+    },
+    {
+      "description": "Social Media Templates",
+      "quantity": 1,
+      "unit_price": 750.00,
+      "amount": 750.00
+    },
+    {
+      "description": "Revision Round",
+      "quantity": 3,
+      "unit_price": 200.00,
+      "amount": 600.00
+    }
+  ],
+  "subtotal": 6850.00,
+  "tax": 1712.50,
+  "total": 8562.50,
+  "currency": "EUR",
+  "payment_terms": "Due within 14 days of invoice date"
+}

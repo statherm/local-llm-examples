@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "customer_name": { "type": "string" },
+    "product": { "type": "string" },
+    "issue_category": {
+      "type": "string",
+      "enum": ["billing", "technical", "account", "shipping", "product_defect", "feature_request", "other"]
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["critical", "high", "medium", "low"]
+    },
+    "requested_action": { "type": "string" },
+    "contact_info": { "type": "string" }
+  },
+  "required": ["customer_name", "product", "issue_category", "severity", "requested_action"]
+}

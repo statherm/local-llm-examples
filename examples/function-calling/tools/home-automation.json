@@ -1,0 +1,91 @@
+[
+  {
+    "name": "set_thermostat",
+    "description": "Set the thermostat to a specific temperature",
+    "parameters": {
+      "temperature": {"type": "number", "description": "Target temperature"},
+      "unit": {"type": "string", "description": "Temperature unit: fahrenheit or celsius"}
+    },
+    "required": ["temperature"]
+  },
+  {
+    "name": "toggle_light",
+    "description": "Turn a light on or off in a specific room",
+    "parameters": {
+      "room": {"type": "string", "description": "Room name"},
+      "state": {"type": "string", "description": "on or off"},
+      "brightness": {"type": "number", "description": "Brightness level 0-100 (optional)"}
+    },
+    "required": ["room", "state"]
+  },
+  {
+    "name": "lock_door",
+    "description": "Lock or unlock a door",
+    "parameters": {
+      "door": {"type": "string", "description": "Door name (e.g., front, back, garage)"},
+      "state": {"type": "string", "description": "lock or unlock"}
+    },
+    "required": ["door", "state"]
+  },
+  {
+    "name": "set_alarm",
+    "description": "Set or disarm the security alarm",
+    "parameters": {
+      "mode": {"type": "string", "description": "arm_stay, arm_away, or disarm"},
+      "code": {"type": "string", "description": "Security code (optional)"}
+    },
+    "required": ["mode"]
+  },
+  {
+    "name": "play_music",
+    "description": "Play music in a room or throughout the house",
+    "parameters": {
+      "query": {"type": "string", "description": "Song, artist, playlist, or genre to play"},
+      "room": {"type": "string", "description": "Room name or 'everywhere'"},
+      "volume": {"type": "number", "description": "Volume level 0-100"}
+    },
+    "required": ["query"]
+  },
+  {
+    "name": "check_weather",
+    "description": "Get current weather or forecast",
+    "parameters": {
+      "forecast": {"type": "boolean", "description": "If true, get forecast instead of current weather"}
+    },
+    "required": []
+  },
+  {
+    "name": "set_timer",
+    "description": "Set a countdown timer",
+    "parameters": {
+      "minutes": {"type": "number", "description": "Timer duration in minutes"},
+      "label": {"type": "string", "description": "Label for the timer (optional)"}
+    },
+    "required": ["minutes"]
+  },
+  {
+    "name": "send_notification",
+    "description": "Send a push notification to a family member",
+    "parameters": {
+      "recipient": {"type": "string", "description": "Name of the person to notify"},
+      "message": {"type": "string", "description": "Notification message"}
+    },
+    "required": ["recipient", "message"]
+  },
+  {
+    "name": "camera_snapshot",
+    "description": "Take a snapshot from a security camera",
+    "parameters": {
+      "camera": {"type": "string", "description": "Camera name (e.g., front_door, backyard, garage)"}
+    },
+    "required": ["camera"]
+  },
+  {
+    "name": "run_scene",
+    "description": "Activate a predefined scene (e.g., movie night, good morning, bedtime)",
+    "parameters": {
+      "scene": {"type": "string", "description": "Scene name"}
+    },
+    "required": ["scene"]
+  }
+]

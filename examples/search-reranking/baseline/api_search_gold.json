@@ -1,0 +1,21 @@
+{
+  "query": "rate limiting middleware with sliding window algorithm",
+  "ranking": [
+    {"id": "api-010", "relevance": 3, "reason": "Sliding window limiter implementation with middleware-ready interface"},
+    {"id": "api-003", "relevance": 3, "reason": "Explains sliding window algorithm in detail"},
+    {"id": "api-005", "relevance": 3, "reason": "Redis-based sliding window rate limiter implementation"},
+    {"id": "api-008", "relevance": 2, "reason": "Rate limiting middleware example but uses token bucket, not sliding window"},
+    {"id": "api-001", "relevance": 2, "reason": "Overview of rate limiting strategies including sliding window"},
+    {"id": "api-013", "relevance": 2, "reason": "Comparison of sliding window counter vs. sliding log approaches"},
+    {"id": "api-015", "relevance": 2, "reason": "Rate limit headers — needed for any rate limiting middleware"},
+    {"id": "api-006", "relevance": 1, "reason": "Standard Go rate limiter — token bucket, not sliding window"},
+    {"id": "api-014", "relevance": 1, "reason": "Load testing rate limiters — related but not implementation"},
+    {"id": "api-002", "relevance": 1, "reason": "General middleware patterns in Go — building block knowledge"},
+    {"id": "api-009", "relevance": 1, "reason": "Distributed rate limiting — advanced topic, tangentially related"},
+    {"id": "api-016", "relevance": 1, "reason": "gRPC rate limiting — different protocol but similar concept"},
+    {"id": "api-007", "relevance": 0, "reason": "API gateway pattern — high-level architecture, not implementation"},
+    {"id": "api-004", "relevance": 0, "reason": "JWT authentication middleware — different concern"},
+    {"id": "api-011", "relevance": 0, "reason": "CORS middleware — completely different middleware type"},
+    {"id": "api-012", "relevance": 0, "reason": "Circuit breaker — different resilience pattern"}
+  ]
+}

@@ -1,0 +1,19 @@
+Extract structured data from the following support ticket. Return a JSON object matching this schema:
+
+{
+  "customer_name": "string — the name of the customer submitting the ticket",
+  "product": "string — the product or service the ticket is about",
+  "issue_category": "string — one of: billing, technical, account, shipping, product_defect, feature_request, other",
+  "severity": "string — one of: critical, high, medium, low",
+  "requested_action": "string — what the customer wants done, summarized in one sentence",
+  "contact_info": "string — email or phone if provided, otherwise empty string"
+}
+
+Rules:
+- issue_category must be exactly one of the listed values
+- severity must be exactly one of the listed values; infer from context if not explicitly stated
+- requested_action should be a concise summary, not a quote of the full message
+- Return ONLY the JSON object, no other text
+
+Support ticket:
+{{INPUT}}

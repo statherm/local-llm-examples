@@ -1,0 +1,80 @@
+{
+  "query": "function to validate email address format",
+  "candidates": [
+    {
+      "id": "code-001",
+      "title": "validators/email.go:ValidateEmail",
+      "snippet": "func ValidateEmail(email string) error {\n\tif !strings.Contains(email, \"@\") {\n\t\treturn fmt.Errorf(\"invalid email: missing @\")\n\t}\n\t_, err := mail.ParseAddress(email)\n\treturn err\n}"
+    },
+    {
+      "id": "code-002",
+      "title": "handlers/user.go:CreateUser",
+      "snippet": "func (h *Handler) CreateUser(w http.ResponseWriter, r *http.Request) {\n\tvar req CreateUserRequest\n\tif err := json.NewDecoder(r.Body).Decode(&req); err != nil {\n\t\thttp.Error(w, \"invalid request\", 400)\n\t\treturn\n\t}\n\tuser, err := h.service.Create(r.Context(), req)\n}"
+    },
+    {
+      "id": "code-003",
+      "title": "validators/email_test.go:TestValidateEmail",
+      "snippet": "func TestValidateEmail(t *testing.T) {\n\ttests := []struct {\n\t\temail string\n\t\twantErr bool\n\t}{\n\t\t{\"user@example.com\", false},\n\t\t{\"invalid\", true},\n\t\t{\"@no-local.com\", true},\n\t\t{\"user@.com\", true},\n\t}\n}"
+    },
+    {
+      "id": "code-004",
+      "title": "models/user.go:User",
+      "snippet": "type User struct {\n\tID        int64     `json:\"id\" db:\"id\"`\n\tEmail     string    `json:\"email\" db:\"email\"`\n\tName      string    `json:\"name\" db:\"name\"`\n\tCreatedAt time.Time `json:\"created_at\" db:\"created_at\"`\n}"
+    },
+    {
+      "id": "code-005",
+      "title": "validators/phone.go:ValidatePhone",
+      "snippet": "func ValidatePhone(phone string) error {\n\tre := regexp.MustCompile(`^\\+?[1-9]\\d{1,14}$`)\n\tif !re.MatchString(phone) {\n\t\treturn fmt.Errorf(\"invalid phone number format\")\n\t}\n\treturn nil\n}"
+    },
+    {
+      "id": "code-006",
+      "title": "validators/validators.go:ValidateAll",
+      "snippet": "func ValidateAll(fields map[string]string, rules map[string]ValidatorFunc) map[string]error {\n\terrs := make(map[string]error)\n\tfor field, value := range fields {\n\t\tif fn, ok := rules[field]; ok {\n\t\t\tif err := fn(value); err != nil {\n\t\t\t\terrs[field] = err\n\t\t\t}\n\t\t}\n\t}\n\treturn errs\n}"
+    },
+    {
+      "id": "code-007",
+      "title": "middleware/auth.go:AuthMiddleware",
+      "snippet": "func AuthMiddleware(next http.Handler) http.Handler {\n\treturn http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {\n\t\ttoken := r.Header.Get(\"Authorization\")\n\t\tif token == \"\" {\n\t\t\thttp.Error(w, \"unauthorized\", 401)\n\t\t\treturn\n\t\t}\n\t\tnext.ServeHTTP(w, r)\n\t})\n}"
+    },
+    {
+      "id": "code-008",
+      "title": "validators/email.go:IsDisposableEmail",
+      "snippet": "func IsDisposableEmail(email string) bool {\n\tdomain := strings.Split(email, \"@\")[1]\n\tdisposable := []string{\"tempmail.com\", \"throwaway.email\", \"guerrillamail.com\"}\n\tfor _, d := range disposable {\n\t\tif domain == d {\n\t\t\treturn true\n\t\t}\n\t}\n\treturn false\n}"
+    },
+    {
+      "id": "code-009",
+      "title": "config/config.go:LoadConfig",
+      "snippet": "func LoadConfig(path string) (*Config, error) {\n\tdata, err := os.ReadFile(path)\n\tif err != nil {\n\t\treturn nil, fmt.Errorf(\"read config: %w\", err)\n\t}\n\tvar cfg Config\n\tif err := yaml.Unmarshal(data, &cfg); err != nil {\n\t\treturn nil, fmt.Errorf(\"parse config: %w\", err)\n\t}\n\treturn &cfg, nil\n}"
+    },
+    {
+      "id": "code-010",
+      "title": "validators/email.go:NormalizeEmail",
+      "snippet": "func NormalizeEmail(email string) string {\n\temail = strings.TrimSpace(email)\n\temail = strings.ToLower(email)\n\tparts := strings.SplitN(email, \"@\", 2)\n\tif len(parts) != 2 {\n\t\treturn email\n\t}\n\tlocal := strings.Split(parts[0], \"+\")[0]\n\treturn local + \"@\" + parts[1]\n}"
+    },
+    {
+      "id": "code-011",
+      "title": "services/notification.go:SendEmail",
+      "snippet": "func (s *NotificationService) SendEmail(to, subject, body string) error {\n\tauth := smtp.PlainAuth(\"\", s.smtpUser, s.smtpPass, s.smtpHost)\n\tmsg := []byte(\"Subject: \" + subject + \"\\r\\n\\r\\n\" + body)\n\treturn smtp.SendMail(s.smtpHost+\":\"+s.smtpPort, auth, s.from, []string{to}, msg)\n}"
+    },
+    {
+      "id": "code-012",
+      "title": "validators/url.go:ValidateURL",
+      "snippet": "func ValidateURL(rawURL string) error {\n\tu, err := url.Parse(rawURL)\n\tif err != nil {\n\t\treturn fmt.Errorf(\"invalid URL: %w\", err)\n\t}\n\tif u.Scheme != \"http\" && u.Scheme != \"https\" {\n\t\treturn fmt.Errorf(\"URL must use http or https scheme\")\n\t}\n\treturn nil\n}"
+    },
+    {
+      "id": "code-013",
+      "title": "db/migrations/002_add_email_index.sql",
+      "snippet": "CREATE UNIQUE INDEX idx_users_email ON users(email);\n-- Ensures email uniqueness at the database level\n-- Also speeds up lookups by email for login flow"
+    },
+    {
+      "id": "code-014",
+      "title": "validators/email.go:ValidateEmailDomain",
+      "snippet": "func ValidateEmailDomain(email string) error {\n\tparts := strings.SplitN(email, \"@\", 2)\n\tif len(parts) != 2 {\n\t\treturn fmt.Errorf(\"invalid email format\")\n\t}\n\t_, err := net.LookupMX(parts[1])\n\tif err != nil {\n\t\treturn fmt.Errorf(\"domain %s has no MX records: %w\", parts[1], err)\n\t}\n\treturn nil\n}"
+    },
+    {
+      "id": "code-015",
+      "title": "handlers/password.go:ResetPassword",
+      "snippet": "func (h *Handler) ResetPassword(w http.ResponseWriter, r *http.Request) {\n\temail := r.FormValue(\"email\")\n\tif email == \"\" {\n\t\thttp.Error(w, \"email required\", 400)\n\t\treturn\n\t}\n\ttoken, err := h.service.GenerateResetToken(r.Context(), email)\n}"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  {"id": "dev-01", "request": "Find all TODO comments in the auth module"},
+  {"id": "dev-02", "request": "Show me the contents of config.yaml"},
+  {"id": "dev-03", "request": "Run the unit tests for the payment service"},
+  {"id": "dev-04", "request": "What files are in the src/models directory?"},
+  {"id": "dev-05", "request": "What does the validateToken function in auth.go do?"},
+  {"id": "dev-06", "request": "Search for any usage of deprecated API calls"},
+  {"id": "dev-07", "request": "Check if there are any uncommitted changes"},
+  {"id": "dev-08", "request": "Create a new file called utils/helpers.go with a package declaration"},
+  {"id": "dev-09", "request": "Replace the old database URL with the new one in the config file"},
+  {"id": "dev-10", "request": "Run all tests with verbose output"},
+  {"id": "dev-11", "request": "List everything in the project root recursively"},
+  {"id": "dev-12", "request": "Find where the UserService struct is defined"},
+  {"id": "dev-13", "request": "Read the README file"},
+  {"id": "dev-14", "request": "Explain the main.go entry point"},
+  {"id": "dev-15", "request": "Search for error handling patterns in the handlers directory"},
+  {"id": "dev-16", "request": "What's the current git status?"},
+  {"id": "dev-17", "request": "Show me all files in the migrations folder"},
+  {"id": "dev-18", "request": "Find all functions that return an error"},
+  {"id": "dev-19", "request": "Read the go.mod file to see what dependencies we have"},
+  {"id": "dev-20", "request": "Create a new test file for the user service"}
+]

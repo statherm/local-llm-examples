@@ -1,0 +1,85 @@
+{
+  "query": "rate limiting middleware with sliding window algorithm",
+  "candidates": [
+    {
+      "id": "api-001",
+      "title": "Rate Limiting Strategies for APIs",
+      "snippet": "Common rate limiting strategies include fixed window, sliding window, token bucket, and leaky bucket. The sliding window approach combines the accuracy of sliding logs with the efficiency of fixed windows by tracking request counts in sub-windows."
+    },
+    {
+      "id": "api-002",
+      "title": "Building HTTP Middleware in Go",
+      "snippet": "HTTP middleware in Go wraps an http.Handler to add cross-cutting concerns. Common middleware includes logging, authentication, CORS, and request ID injection. Chain middleware using adapter functions."
+    },
+    {
+      "id": "api-003",
+      "title": "Implementing Sliding Window Rate Limiting",
+      "snippet": "The sliding window algorithm divides time into fixed-size sub-windows and weights the previous window's count by the overlap percentage. This prevents the burst problem of fixed windows while using O(1) memory per client."
+    },
+    {
+      "id": "api-004",
+      "title": "JWT Authentication Middleware",
+      "snippet": "Validate JWT tokens in middleware by extracting the Authorization header, parsing the token with your secret key, checking expiration, and injecting the claims into the request context for downstream handlers."
+    },
+    {
+      "id": "api-005",
+      "title": "Redis-Based Rate Limiter with Sliding Window",
+      "snippet": "Use Redis sorted sets for a sliding window rate limiter. Store each request as a member with its timestamp as score. Use ZRANGEBYSCORE to count requests in the current window and ZREMRANGEBYSCORE to clean old entries."
+    },
+    {
+      "id": "api-006",
+      "title": "Go Rate Limiter Package: golang.org/x/time/rate",
+      "snippet": "The standard rate package implements a token bucket limiter. Create with rate.NewLimiter(rate.Limit, burst). Use Allow() for non-blocking checks or Wait(ctx) for blocking. Does not support sliding window directly."
+    },
+    {
+      "id": "api-007",
+      "title": "API Gateway Pattern",
+      "snippet": "An API gateway sits between clients and microservices, handling authentication, rate limiting, request routing, load balancing, and response caching. Popular options include Kong, Envoy, and custom Go implementations."
+    },
+    {
+      "id": "api-008",
+      "title": "Rate Limiting Middleware Example",
+      "snippet": "func RateLimitMiddleware(limiter *rate.Limiter) func(http.Handler) http.Handler {\n\treturn func(next http.Handler) http.Handler {\n\t\treturn http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {\n\t\t\tif !limiter.Allow() {\n\t\t\t\thttp.Error(w, \"rate limit exceeded\", 429)\n\t\t\t\treturn\n\t\t\t}\n\t\t\tnext.ServeHTTP(w, r)\n\t\t})\n\t}\n}"
+    },
+    {
+      "id": "api-009",
+      "title": "Distributed Rate Limiting with Consul",
+      "snippet": "For distributed rate limiting across multiple service instances, use a shared state store like Consul or etcd. Each instance checks and increments counters atomically using compare-and-swap operations."
+    },
+    {
+      "id": "api-010",
+      "title": "Per-Client Sliding Window Implementation",
+      "snippet": "type SlidingWindowLimiter struct {\n\tmu       sync.Mutex\n\tclients  map[string]*window\n\tlimit    int\n\twindowMs int64\n}\n\nfunc (l *SlidingWindowLimiter) Allow(clientIP string) bool {\n\tl.mu.Lock()\n\tdefer l.mu.Unlock()\n\tw := l.getOrCreate(clientIP)\n\treturn w.allow(l.limit, l.windowMs)\n}"
+    },
+    {
+      "id": "api-011",
+      "title": "CORS Middleware Configuration",
+      "snippet": "Configure CORS headers in middleware: Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers. Handle preflight OPTIONS requests separately. Use rs/cors package for production."
+    },
+    {
+      "id": "api-012",
+      "title": "Circuit Breaker Pattern in Go",
+      "snippet": "A circuit breaker prevents cascading failures by tracking error rates. States: Closed (normal), Open (failing fast), Half-Open (testing recovery). Use sony/gobreaker or hystrix-go packages."
+    },
+    {
+      "id": "api-013",
+      "title": "Sliding Window Counter vs. Sliding Log",
+      "snippet": "Sliding window counters use fixed sub-buckets with weighted interpolation (O(1) memory). Sliding logs store every request timestamp (O(n) memory but exact). For most APIs, the counter approach is preferred due to lower memory overhead."
+    },
+    {
+      "id": "api-014",
+      "title": "Load Testing Your Rate Limiter",
+      "snippet": "Use vegeta or hey to load test your rate limiter. Verify that requests beyond the limit return 429 status codes. Test edge cases: exactly at limit, burst patterns, multiple clients, and clock skew scenarios."
+    },
+    {
+      "id": "api-015",
+      "title": "Rate Limit Response Headers",
+      "snippet": "Return standard rate limit headers: X-RateLimit-Limit (max requests), X-RateLimit-Remaining (requests left), X-RateLimit-Reset (window reset time as Unix timestamp), Retry-After (seconds until retry for 429 responses)."
+    },
+    {
+      "id": "api-016",
+      "title": "gRPC Interceptors for Rate Limiting",
+      "snippet": "Implement rate limiting in gRPC using unary and stream interceptors. Extract client identity from metadata, check the limiter, and return codes.ResourceExhausted with retry-after details."
+    }
+  ]
+}

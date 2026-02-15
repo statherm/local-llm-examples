@@ -1,0 +1,29 @@
+{
+  "name": "transactions",
+  "description": "Generate realistic financial transaction records for a payment processing system",
+  "count": 10,
+  "fields": [
+    {"name": "transaction_id", "type": "string", "description": "UUID format (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)"},
+    {"name": "user_id", "type": "integer", "description": "Reference to a user, between 1001 and 1100"},
+    {"name": "amount", "type": "number", "description": "Transaction amount in USD"},
+    {"name": "currency", "type": "string", "description": "Always USD"},
+    {"name": "type", "type": "string", "description": "Transaction type: purchase, refund, or subscription"},
+    {"name": "status", "type": "string", "description": "Status: completed, pending, or failed"},
+    {"name": "merchant", "type": "string", "description": "Realistic merchant or company name"},
+    {"name": "category", "type": "string", "description": "Spending category: food, transport, entertainment, utilities, shopping, software"},
+    {"name": "timestamp", "type": "string", "description": "ISO 8601 datetime with timezone (e.g., 2024-06-15T14:30:00Z)"},
+    {"name": "is_flagged", "type": "boolean", "description": "Whether the transaction is flagged as suspicious"}
+  ],
+  "example": {
+    "transaction_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "user_id": 1042,
+    "amount": 49.99,
+    "currency": "USD",
+    "type": "purchase",
+    "status": "completed",
+    "merchant": "Cloud Coffee Roasters",
+    "category": "food",
+    "timestamp": "2024-06-15T14:30:00Z",
+    "is_flagged": false
+  }
+}

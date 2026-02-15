@@ -1,0 +1,7 @@
+[
+  {"Name": "express", "Version": "4.18.2", "License": "MIT", "Downloads": "29451023"},
+  {"Name": "lodash", "Version": "4.17.21", "License": "MIT", "Downloads": "51983421"},
+  {"Name": "axios", "Version": "1.6.2", "License": "MIT", "Downloads": "41256789"},
+  {"Name": "react", "Version": "18.2.0", "License": "MIT", "Downloads": "19872345"},
+  {"Name": "typescript", "Version": "5.3.2", "License": "Apache-2.0", "Downloads": "38912456"}
+]

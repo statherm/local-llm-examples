@@ -1,0 +1,1 @@
+Application version 2.4.1 started successfully, connecting to PostgreSQL and Redis, and applying 3 database migrations. Both HTTP (port 8080 with TLS) and gRPC (port 9090) servers are running with 4 background workers. One slow query warning was logged for the products endpoint (312ms), but all requests completed successfully. Overall health: healthy.

@@ -1,0 +1,27 @@
+[
+  {
+    "owner": "Luis",
+    "action": "Extend canary deployment window to 15 minutes minimum",
+    "deadline": null
+  },
+  {
+    "owner": "Alex",
+    "action": "Lower connection pool warning threshold to 70% and add rate-of-change alert",
+    "deadline": "Thursday"
+  },
+  {
+    "owner": "Dana",
+    "action": "Configure PgBouncer metrics and pipe to Datadog",
+    "deadline": "Friday"
+  },
+  {
+    "owner": "Luis",
+    "action": "Add connection pool health check to readiness probe (stop traffic above 80%)",
+    "deadline": null
+  },
+  {
+    "owner": "Luis",
+    "action": "Update runbook with new database connection monitoring procedures",
+    "deadline": "next Wednesday"
+  }
+]

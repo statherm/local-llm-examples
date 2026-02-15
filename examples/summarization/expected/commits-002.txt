@@ -1,0 +1,12 @@
+## Summary
+Fixes duplicate webhook deliveries and corrects webhook signature calculation for empty payloads.
+
+## Key Changes
+- Added per-endpoint deduplication cache with 60-second TTL to prevent duplicate webhook deliveries
+- Fixed HMAC signature computation for empty request bodies (was computing over "null" instead of empty string)
+- Regression tests for both dedup and signature fixes
+
+## Testing Notes
+- Run webhook delivery tests to verify dedup cache prevents duplicate sends within 60s
+- Test webhook signature validation with an empty payload to confirm receivers accept the signature
+- Monitor webhook delivery logs after deploy to confirm no more duplicate entries

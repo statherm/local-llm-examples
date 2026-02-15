@@ -1,0 +1,13 @@
+## Summary
+Adds WebSocket support for real-time notifications, enabling clients to receive push updates over persistent connections with JWT-based authentication.
+
+## Key Changes
+- New WebSocket upgrade handler and connection manager with ping/pong heartbeat and automatic reconnection
+- Extracted notification serializer into a shared package for reuse across REST and WebSocket handlers
+- Integration tests covering connection lifecycle, auth failures, message ordering, and reconnection
+- API reference documentation for the new /ws/notifications endpoint
+
+## Testing Notes
+- Run integration tests for WebSocket handler: covers auth flow, message delivery, and reconnection
+- Manually test WebSocket connection with an authenticated JWT token against the /ws/notifications endpoint
+- Verify existing REST notification endpoint still works after serializer refactor

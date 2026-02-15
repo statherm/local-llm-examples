@@ -1,0 +1,26 @@
+INVOICE
+
+Acme Web Services, LLC
+123 Cloud Ave, Suite 400
+Portland, OR 97201
+
+Invoice #: AWS-2025-0847
+Date: March 15, 2025
+
+Bill To:
+Riverdale Tech Corp
+456 Innovation Blvd
+Austin, TX 78701
+
+Description                          Qty    Unit Price    Amount
+-----------------------------------------------------------------
+Website Hosting (Annual Plan)          1      $480.00    $480.00
+SSL Certificate Renewal                1       $29.99     $29.99
+Domain Registration (.com)             2       $12.00     $24.00
+
+                                           Subtotal:    $533.99
+                                           Tax (0%):      $0.00
+                                           Total:       $533.99
+
+Payment Terms: Net 30
+Payment Method: Wire transfer or check

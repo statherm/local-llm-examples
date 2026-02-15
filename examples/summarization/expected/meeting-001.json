@@ -1,0 +1,32 @@
+[
+  {
+    "owner": "Mike",
+    "action": "Handle Stripe SDK upgrade and webhook endpoint changes",
+    "deadline": "Thursday"
+  },
+  {
+    "owner": "Jake",
+    "action": "Rotate test Stripe keys through secrets manager",
+    "deadline": "Monday end of day"
+  },
+  {
+    "owner": "Priya",
+    "action": "Update integration tests for new payment endpoints",
+    "deadline": "Wednesday"
+  },
+  {
+    "owner": "Priya",
+    "action": "Build CSV user export endpoint",
+    "deadline": "Thursday"
+  },
+  {
+    "owner": "Jake",
+    "action": "Switch remaining 4 services to structured logging",
+    "deadline": "Friday"
+  },
+  {
+    "owner": "Sarah",
+    "action": "Draft runbook update for payment flow",
+    "deadline": "next Monday"
+  }
+]

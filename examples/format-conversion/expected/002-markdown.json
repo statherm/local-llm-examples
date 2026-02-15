@@ -1,0 +1,7 @@
+[
+  {"Service": "api-gateway", "Port": "8080", "Status": "running", "CPU": "12%", "Memory": "256MB"},
+  {"Service": "auth-service", "Port": "8081", "Status": "running", "CPU": "3%", "Memory": "128MB"},
+  {"Service": "order-service", "Port": "8082", "Status": "degraded", "CPU": "78%", "Memory": "512MB"},
+  {"Service": "notification-service", "Port": "8083", "Status": "stopped", "CPU": "0%", "Memory": "0MB"},
+  {"Service": "worker", "Port": "9090", "Status": "running", "CPU": "45%", "Memory": "384MB"}
+]

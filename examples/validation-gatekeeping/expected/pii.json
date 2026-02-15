@@ -1,0 +1,22 @@
+[
+  {"id": "pii-01", "contains_pii": true,  "pii_types": ["address"]},
+  {"id": "pii-02", "contains_pii": false, "pii_types": []},
+  {"id": "pii-03", "contains_pii": true,  "pii_types": ["email", "phone"]},
+  {"id": "pii-04", "contains_pii": false, "pii_types": []},
+  {"id": "pii-05", "contains_pii": true,  "pii_types": ["ssn"]},
+  {"id": "pii-06", "contains_pii": false, "pii_types": []},
+  {"id": "pii-07", "contains_pii": true,  "pii_types": ["name"]},
+  {"id": "pii-08", "contains_pii": false, "pii_types": []},
+  {"id": "pii-09", "contains_pii": true,  "pii_types": ["name", "address", "email"]},
+  {"id": "pii-10", "contains_pii": false, "pii_types": []},
+  {"id": "pii-11", "contains_pii": true,  "pii_types": ["credit_card"]},
+  {"id": "pii-12", "contains_pii": false, "pii_types": []},
+  {"id": "pii-13", "contains_pii": false, "pii_types": []},
+  {"id": "pii-14", "contains_pii": false, "pii_types": []},
+  {"id": "pii-15", "contains_pii": true,  "pii_types": ["passport", "dob"]},
+  {"id": "pii-16", "contains_pii": false, "pii_types": []},
+  {"id": "pii-17", "contains_pii": true,  "pii_types": ["name", "email", "phone"]},
+  {"id": "pii-18", "contains_pii": false, "pii_types": []},
+  {"id": "pii-19", "contains_pii": true,  "pii_types": ["name", "dob", "ssn"]},
+  {"id": "pii-20", "contains_pii": false, "pii_types": []}
+]

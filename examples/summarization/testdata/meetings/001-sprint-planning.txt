@@ -1,0 +1,31 @@
+Sprint Planning - Team Backend
+Date: Feb 10, 2026
+Attendees: Sarah (tech lead), Mike (senior dev), Priya (dev), Jake (dev), Tom (PM)
+
+Tom: Let's review what's coming into this sprint. We have the payment gateway migration, the user export feature, and some tech debt items.
+
+Sarah: The payment gateway migration is the big one. Mike, you've been scoping this - what's the plan?
+
+Mike: I'll handle the Stripe SDK upgrade and the webhook endpoint changes. Should take about 3 days. I need Priya to update the integration tests once I have the new endpoints ready, probably by Wednesday.
+
+Tom: When can we have it in staging?
+
+Mike: Targeting Thursday for staging. But I need the test Stripe keys rotated first - Jake, can you handle that through the secrets manager?
+
+Jake: Sure, I'll rotate the keys by end of day Monday.
+
+Sarah: Good. Priya, after the integration tests, I want you to pick up the user export feature. The CSV export endpoint should be straightforward - just wire up the existing query to a streaming CSV writer.
+
+Priya: Got it. I'll start on the export endpoint after Mike's changes are testable, so probably Thursday.
+
+Tom: What about the tech debt items?
+
+Sarah: Jake, after the key rotation, can you tackle the logging standardization? We need to switch the remaining services to structured logging by end of sprint.
+
+Jake: Yeah, I've already identified the 4 services that still use the old logger. I'll have PRs up by Friday.
+
+Tom: Perfect. One more thing - we need someone to update the runbook for the payment flow before we go live. Sarah, can you own that?
+
+Sarah: I'll draft the runbook update by next Monday and circulate it for review.
+
+Tom: Great. Let's reconvene Wednesday for a mid-sprint check-in.

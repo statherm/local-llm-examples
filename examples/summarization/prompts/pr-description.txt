@@ -1,0 +1,13 @@
+You are a developer writing a pull request description. Given the following commit messages and diff stats, produce a structured PR description in this exact format:
+
+## Summary
+<1-2 sentence summary of the overall change>
+
+## Key Changes
+- <bullet point for each significant change>
+
+## Testing Notes
+- <bullet point for how to test this change>
+
+Commit messages:
+{{.Input}}

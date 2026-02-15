@@ -1,0 +1,48 @@
+{
+  "vendor_name": "Pinnacle Consulting Group",
+  "invoice_number": "PCG-2025-1583",
+  "date": "2025-04-02",
+  "line_items": [
+    {
+      "description": "Senior Architect — J. Rodriguez (112 hours)",
+      "quantity": 112,
+      "unit_price": 285.00,
+      "amount": 31920.00
+    },
+    {
+      "description": "Cloud Infrastructure Analyst — M. Okoye (88 hours)",
+      "quantity": 88,
+      "unit_price": 215.00,
+      "amount": 18920.00
+    },
+    {
+      "description": "Data Migration Specialist — R. Patel (96 hours)",
+      "quantity": 96,
+      "unit_price": 245.00,
+      "amount": 23520.00
+    },
+    {
+      "description": "Project Manager — A. Vasquez (40 hours)",
+      "quantity": 40,
+      "unit_price": 195.00,
+      "amount": 7800.00
+    },
+    {
+      "description": "Travel (BOS→RDU, 3 trips)",
+      "quantity": 1,
+      "unit_price": 2847.50,
+      "amount": 2847.50
+    },
+    {
+      "description": "Cloud sandbox environment (AWS)",
+      "quantity": 1,
+      "unit_price": 1235.00,
+      "amount": 1235.00
+    }
+  ],
+  "subtotal": 86242.50,
+  "tax": 5390.16,
+  "total": 91632.66,
+  "currency": "USD",
+  "payment_terms": "Net 45"
+}

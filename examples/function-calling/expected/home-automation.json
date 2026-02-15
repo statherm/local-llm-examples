@@ -1,0 +1,22 @@
+[
+  {"id": "home-01", "tool": "set_thermostat", "parameters": {"temperature": 72, "unit": "fahrenheit"}},
+  {"id": "home-02", "tool": "toggle_light", "parameters": {"room": "kitchen", "state": "off"}},
+  {"id": "home-03", "tool": "lock_door", "parameters": {"door": "front", "state": "lock"}},
+  {"id": "home-04", "tool": "play_music", "parameters": {"query": "jazz", "room": "living room"}},
+  {"id": "home-05", "tool": "check_weather", "parameters": {"forecast": true}},
+  {"id": "home-06", "tool": "set_timer", "parameters": {"minutes": 15, "label": "pasta"}},
+  {"id": "home-07", "tool": "set_alarm", "parameters": {"mode": "arm_away"}},
+  {"id": "home-08", "tool": "send_notification", "parameters": {"recipient": "Sarah", "message": "dinner is ready"}},
+  {"id": "home-09", "tool": "camera_snapshot", "parameters": {"camera": "front_door"}},
+  {"id": "home-10", "tool": "run_scene", "parameters": {"scene": "movie night"}},
+  {"id": "home-11", "tool": "toggle_light", "parameters": {"room": "bedroom", "state": "on", "brightness": 30}},
+  {"id": "home-12", "tool": "lock_door", "parameters": {"door": "garage", "state": "unlock"}},
+  {"id": "home-13", "tool": "toggle_light", "parameters": {"room": "living room", "state": "on"}},
+  {"id": "home-14", "tool": "set_thermostat", "parameters": {"temperature": 20, "unit": "celsius"}},
+  {"id": "home-15", "tool": "play_music", "parameters": {"query": "workout", "room": "everywhere", "volume": 80}},
+  {"id": "home-16", "tool": "check_weather", "parameters": {"forecast": false}},
+  {"id": "home-17", "tool": "set_alarm", "parameters": {"mode": "disarm"}},
+  {"id": "home-18", "tool": "send_notification", "parameters": {"recipient": "Mike", "message": "I'll be home late"}},
+  {"id": "home-19", "tool": "camera_snapshot", "parameters": {"camera": "backyard"}},
+  {"id": "home-20", "tool": "run_scene", "parameters": {"scene": "bedtime"}}
+]

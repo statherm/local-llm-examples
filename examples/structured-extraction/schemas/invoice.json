@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "vendor_name": { "type": "string" },
+    "invoice_number": { "type": "string" },
+    "date": { "type": "string", "description": "ISO 8601 date (YYYY-MM-DD)" },
+    "line_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": { "type": "string" },
+          "quantity": { "type": "number" },
+          "unit_price": { "type": "number" },
+          "amount": { "type": "number" }
+        },
+        "required": ["description", "quantity", "unit_price", "amount"]
+      }
+    },
+    "subtotal": { "type": "number" },
+    "tax": { "type": "number" },
+    "total": { "type": "number" },
+    "currency": { "type": "string" },
+    "payment_terms": { "type": "string" }
+  },
+  "required": ["vendor_name", "invoice_number", "date", "line_items", "subtotal", "tax", "total", "currency"]
+}

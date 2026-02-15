@@ -1,0 +1,22 @@
+[
+  {"id": "dev-01", "tool": "search_code", "parameters": {"pattern": "TODO", "path": "auth/"}},
+  {"id": "dev-02", "tool": "read_file", "parameters": {"path": "config.yaml"}},
+  {"id": "dev-03", "tool": "run_tests", "parameters": {"path": "payment/"}},
+  {"id": "dev-04", "tool": "list_files", "parameters": {"path": "src/models"}},
+  {"id": "dev-05", "tool": "explain_code", "parameters": {"path": "auth.go", "function_name": "validateToken"}},
+  {"id": "dev-06", "tool": "search_code", "parameters": {"pattern": "deprecated"}},
+  {"id": "dev-07", "tool": "git_status", "parameters": {}},
+  {"id": "dev-08", "tool": "create_file", "parameters": {"path": "utils/helpers.go", "content": "package utils\n"}},
+  {"id": "dev-09", "tool": "edit_file", "parameters": {}},
+  {"id": "dev-10", "tool": "run_tests", "parameters": {"verbose": true}},
+  {"id": "dev-11", "tool": "list_files", "parameters": {"path": ".", "recursive": true}},
+  {"id": "dev-12", "tool": "search_code", "parameters": {"pattern": "UserService"}},
+  {"id": "dev-13", "tool": "read_file", "parameters": {"path": "README.md"}},
+  {"id": "dev-14", "tool": "explain_code", "parameters": {"path": "main.go"}},
+  {"id": "dev-15", "tool": "search_code", "parameters": {"pattern": "error", "path": "handlers/"}},
+  {"id": "dev-16", "tool": "git_status", "parameters": {}},
+  {"id": "dev-17", "tool": "list_files", "parameters": {"path": "migrations/"}},
+  {"id": "dev-18", "tool": "search_code", "parameters": {"pattern": "error"}},
+  {"id": "dev-19", "tool": "read_file", "parameters": {"path": "go.mod"}},
+  {"id": "dev-20", "tool": "create_file", "parameters": {"path": "user_service_test.go"}}
+]

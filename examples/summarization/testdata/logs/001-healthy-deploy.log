@@ -1,0 +1,22 @@
+2026-02-14T10:00:01Z INFO  [main] Starting application version 2.4.1
+2026-02-14T10:00:01Z INFO  [config] Loaded configuration from /etc/app/config.yaml
+2026-02-14T10:00:02Z INFO  [db] Connecting to PostgreSQL at db.internal:5432
+2026-02-14T10:00:02Z INFO  [db] Connection pool established (min=5, max=20)
+2026-02-14T10:00:02Z INFO  [db] Running migrations... 3 pending
+2026-02-14T10:00:03Z INFO  [db] Migration 041_add_audit_log applied
+2026-02-14T10:00:03Z INFO  [db] Migration 042_index_created_at applied
+2026-02-14T10:00:03Z INFO  [db] Migration 043_add_webhook_table applied
+2026-02-14T10:00:03Z INFO  [db] All migrations complete
+2026-02-14T10:00:03Z INFO  [cache] Connected to Redis at cache.internal:6379
+2026-02-14T10:00:04Z INFO  [http] Starting HTTP server on :8080
+2026-02-14T10:00:04Z INFO  [http] TLS enabled with certificate from /etc/tls/server.crt
+2026-02-14T10:00:04Z INFO  [grpc] Starting gRPC server on :9090
+2026-02-14T10:00:04Z INFO  [health] Health check endpoint ready at /healthz
+2026-02-14T10:00:05Z INFO  [worker] Starting background job processor (workers=4)
+2026-02-14T10:00:05Z INFO  [main] Application ready, accepting requests
+2026-02-14T10:00:12Z INFO  [http] GET /healthz 200 1ms
+2026-02-14T10:00:15Z INFO  [http] GET /api/v1/users 200 23ms
+2026-02-14T10:00:17Z INFO  [http] POST /api/v1/orders 201 45ms
+2026-02-14T10:00:19Z WARN  [http] GET /api/v1/products?category=electronics 200 312ms (slow query)
+2026-02-14T10:00:22Z INFO  [http] GET /api/v1/users/42 200 8ms
+2026-02-14T10:00:25Z INFO  [worker] Processed job email_notification id=7841 duration=230ms

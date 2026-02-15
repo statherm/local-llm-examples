@@ -1,0 +1,1 @@
+The API endpoint at /api/v1/users returns a paginated list of user records. Each record includes a user_id (UUID), created_at timestamp, and role field. The endpoint supports filtering by role and sorting by creation date.

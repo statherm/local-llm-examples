@@ -1,0 +1,17 @@
+{
+  "schema": "user_profiles",
+  "rules": [
+    {"field": "age", "rule": "range", "min": 18, "max": 65},
+    {"field": "state", "rule": "length", "exact": 2},
+    {"field": "zip_code", "rule": "pattern", "regex": "^[0-9]{5}$"},
+    {"field": "plan", "rule": "enum", "values": ["free", "basic", "pro", "enterprise"]},
+    {"field": "signup_date", "rule": "date_range", "min": "2023-01-01", "max": "2025-12-31"},
+    {"field": "email", "rule": "pattern", "regex": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"},
+    {"field": "is_active", "rule": "type", "expected_type": "boolean"},
+    {"field": "id", "rule": "unique"}
+  ],
+  "distribution_checks": [
+    {"field": "plan", "check": "all_values_present", "values": ["free", "basic", "pro", "enterprise"]},
+    {"field": "is_active", "check": "both_values_present"}
+  ]
+}

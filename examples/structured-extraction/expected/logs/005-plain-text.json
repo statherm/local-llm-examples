@@ -1,0 +1,13 @@
+{
+  "timestamp": "2025-03-14T22:01:55Z",
+  "level": "WARN",
+  "source": "postgres",
+  "message": "terminating connection due to idle-in-transaction timeout",
+  "metadata": {
+    "hostname": "db-primary",
+    "pid": "4421",
+    "user": "appuser",
+    "database": "production",
+    "client_addr": "10.2.3.45"
+  }
+}

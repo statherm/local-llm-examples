@@ -1,0 +1,8 @@
+{
+  "customer_name": "Tom Andersen",
+  "product": "NovaPro Wireless Headphones",
+  "issue_category": "product_defect",
+  "severity": "medium",
+  "requested_action": "Replace the defective headphones under warranty",
+  "contact_info": ""
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "api_responses",
+  "rules": [
+    {"field": "product_id", "rule": "pattern", "regex": "^PROD-[0-9]{4}$"},
+    {"field": "price", "rule": "range", "min": 0.01, "max": 99999.99},
+    {"field": "currency", "rule": "enum", "values": ["USD"]},
+    {"field": "category", "rule": "enum", "values": ["electronics", "clothing", "home", "sports", "books"]},
+    {"field": "in_stock", "rule": "type", "expected_type": "boolean"},
+    {"field": "stock_count", "rule": "range", "min": 0, "max": 100000},
+    {"field": "rating", "rule": "range", "min": 1.0, "max": 5.0},
+    {"field": "review_count", "rule": "range", "min": 0, "max": 1000000},
+    {"field": "tags", "rule": "type", "expected_type": "array"},
+    {"field": "tags", "rule": "array_length", "min": 2, "max": 4},
+    {"field": "product_id", "rule": "unique"}
+  ],
+  "distribution_checks": [
+    {"field": "in_stock", "check": "both_values_present"},
+    {"field": "category", "check": "min_distinct_values", "min": 2}
+  ],
+  "cross_field_rules": [
+    {"rule": "if_then", "if_field": "in_stock", "if_value": false, "then_field": "stock_count", "then_value": 0}
+  ]
+}

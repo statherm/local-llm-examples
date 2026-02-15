@@ -1,0 +1,31 @@
+{
+  "name": "api_responses",
+  "description": "Generate realistic API response payloads for a product catalog API",
+  "count": 5,
+  "fields": [
+    {"name": "product_id", "type": "string", "description": "Product ID in format PROD-XXXX (4 digits)"},
+    {"name": "name", "type": "string", "description": "Realistic product name"},
+    {"name": "description", "type": "string", "description": "One-sentence product description"},
+    {"name": "price", "type": "number", "description": "Price in USD, 2 decimal places"},
+    {"name": "currency", "type": "string", "description": "Always USD"},
+    {"name": "category", "type": "string", "description": "Product category: electronics, clothing, home, sports, books"},
+    {"name": "in_stock", "type": "boolean", "description": "Whether the product is available"},
+    {"name": "stock_count", "type": "integer", "description": "Number of units in stock (0 if not in_stock)"},
+    {"name": "rating", "type": "number", "description": "Average rating from 1.0 to 5.0, one decimal place"},
+    {"name": "review_count", "type": "integer", "description": "Number of reviews"},
+    {"name": "tags", "type": "array", "description": "2-4 relevant keyword tags"}
+  ],
+  "example": {
+    "product_id": "PROD-0042",
+    "name": "Wireless Noise-Canceling Headphones",
+    "description": "Premium over-ear headphones with active noise cancellation and 30-hour battery life.",
+    "price": 179.99,
+    "currency": "USD",
+    "category": "electronics",
+    "in_stock": true,
+    "stock_count": 234,
+    "rating": 4.6,
+    "review_count": 1847,
+    "tags": ["wireless", "noise-canceling", "bluetooth", "headphones"]
+  }
+}

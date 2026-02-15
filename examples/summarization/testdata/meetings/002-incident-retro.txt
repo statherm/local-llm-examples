@@ -1,0 +1,25 @@
+Incident Retrospective - Database Outage Feb 8
+Date: Feb 12, 2026
+Attendees: Alex (SRE lead), Dana (DBA), Luis (backend lead), Karen (VP Eng)
+
+Alex: Let's walk through the timeline. The outage started at 2:47 PM when our primary database hit max connections. Total downtime was 23 minutes.
+
+Dana: The root cause was the connection leak in the order processing service. After the v2.3.9 deploy at 1:30 PM, each request was opening a new connection but the cleanup goroutine was panicking silently due to a nil context. Connections accumulated until we hit the PostgreSQL max_connections limit.
+
+Luis: We should have caught this in the canary phase. The canary was only running for 5 minutes before we promoted to full rollout. I want to extend our canary window to 15 minutes minimum.
+
+Karen: Agreed. What about monitoring? Why didn't we get paged earlier?
+
+Alex: Our connection pool alerting threshold was set at 90%. We were at 85% for 20 minutes before it spiked to 100% in under 2 minutes. I'll lower the warning threshold to 70% and add a rate-of-change alert. Dana, can you also set up a PostgreSQL-side connection count alert?
+
+Dana: Yes, I'll configure PgBouncer metrics and pipe them to Datadog. I can have that done by end of week.
+
+Luis: On the code side, I need to add a connection pool health check to our readiness probe. If the pool is above 80%, the pod should stop accepting traffic. I'll assign that to my team this sprint.
+
+Karen: What about the immediate fix?
+
+Dana: We patched the nil context issue within an hour of identifying it. The fix is in v2.3.10 which is already in production. We also temporarily increased max_connections from 100 to 150 as a safety buffer.
+
+Alex: For action items: I'll update the alert thresholds and create the rate-of-change alert by Thursday. Dana handles the PgBouncer monitoring by Friday. Luis adds the readiness probe change this sprint. And I think we should document this in our runbook - Luis, can you update the database section?
+
+Luis: I'll update the runbook with the new connection monitoring procedures by next Wednesday.

@@ -1,0 +1,1 @@
+Configure Redis with host at cache.internal on port 6379, using database 0, with a connection pool size of 10 and idle timeout of 300 seconds. Enable TLS with certificate verification. Set the key prefix to myapp and default TTL to 3600 seconds.

@@ -1,0 +1,18 @@
+2026-02-14T14:30:01Z INFO  [http] GET /api/v1/orders 200 34ms
+2026-02-14T14:30:03Z INFO  [http] POST /api/v1/orders 201 67ms
+2026-02-14T14:30:05Z WARN  [db] Query took 1.2s: SELECT * FROM orders WHERE user_id = $1 (threshold: 500ms)
+2026-02-14T14:30:06Z INFO  [http] GET /api/v1/users/15 200 12ms
+2026-02-14T14:30:08Z WARN  [db] Connection pool utilization at 85% (17/20)
+2026-02-14T14:30:10Z ERROR [db] Query failed: FATAL: too many connections for role "appuser"
+2026-02-14T14:30:10Z ERROR [http] GET /api/v1/orders/recent 500 2ms (database error)
+2026-02-14T14:30:11Z WARN  [db] Connection pool utilization at 95% (19/20)
+2026-02-14T14:30:12Z ERROR [db] Query failed: FATAL: too many connections for role "appuser"
+2026-02-14T14:30:12Z ERROR [http] POST /api/v1/orders 500 1ms (database error)
+2026-02-14T14:30:14Z WARN  [db] Attempting connection pool recovery...
+2026-02-14T14:30:15Z INFO  [db] Released 5 idle connections
+2026-02-14T14:30:16Z INFO  [db] Connection pool utilization recovered to 60% (12/20)
+2026-02-14T14:30:18Z WARN  [db] Query took 890ms: SELECT * FROM orders WHERE created_at > $1 (threshold: 500ms)
+2026-02-14T14:30:20Z INFO  [http] GET /api/v1/orders 200 156ms
+2026-02-14T14:30:22Z INFO  [http] GET /api/v1/users 200 18ms
+2026-02-14T14:30:25Z INFO  [worker] Processed job order_confirmation id=3392 duration=340ms
+2026-02-14T14:30:28Z WARN  [db] Query took 720ms: SELECT count(*) FROM orders (threshold: 500ms)

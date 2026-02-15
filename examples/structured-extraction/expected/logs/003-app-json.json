@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-03-22T16:45:02.331Z",
+  "level": "ERROR",
+  "source": "payment-service",
+  "message": "charge failed: card_declined",
+  "metadata": {
+    "customer_id": "cust_8vK2mN",
+    "amount": "4999",
+    "currency": "usd",
+    "request_id": "req_abc123xyz"
+  }
+}
